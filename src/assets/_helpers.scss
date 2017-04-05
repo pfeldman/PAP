@@ -1,0 +1,399 @@
+// BORDERS
+
+.brgl {
+  border: 1px solid $gray-light;
+}
+
+.bt-less {
+  border-top: 0px solid;
+}
+
+.vhr {
+  width: 1px;
+  height: 33px;
+  display: block;
+  background-color: $white;
+  margin-top: 0px !important;
+  margin-right: 5px;
+}
+
+.scrollX {
+  overflow-x: auto;
+}
+
+.ow-bw{
+  overflow-wrap: break-word;
+}
+
+.br-xs {
+  border-width: 2px;
+}
+
+.br-xxs {
+  border-right: 1px solid;
+}
+
+.bc-w {
+  border-color: whtie;
+}
+
+.br-primary {
+  border-color: $primary !important;
+
+  &.satisfied {
+    border-color: $correct !important;
+  }
+
+  &.rejected {
+    border-color: $error !important;
+  }
+}
+
+// FONTS
+
+.ftb {
+  font-weight: 600;
+}
+
+.fw-n {
+  font-weight: normal;
+}
+
+.fw-l {
+  font-weight: 300;
+}
+
+.fts-xs {
+  font-size: 8px;
+}
+
+.fts-s {
+  font-size: 11px;
+}
+
+.fts-lg {
+  font-size: 14px;
+}
+
+.ftc-lg {
+  color: $gray;
+}
+
+// DISPLAY
+
+.dsb {
+  display: block;
+}
+
+.dsi {
+  display: inline;
+}
+
+.dsn {
+  display: none;
+}
+
+// SPACING
+
+.cb {
+  clear: both; 
+}
+
+.px-sp {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.px-n {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.pz-n {
+  padding: 0 !important;
+}
+
+.px-s {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.pl-rlg {
+  padding-left: 17px;
+}
+
+.px-r {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.pt-rs,
+.pt-rs * {
+  padding-top: 8px;
+}
+
+.pt-s {
+  padding-top: 5px;
+}
+
+.py-r {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.pt-lg {
+  padding-top: 19px;
+}
+
+.py-lg {
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+}
+
+.py-lg {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.px-rlg {
+  padding-left: 15px;
+  padding-top: 15px;
+}
+
+.pb-s {
+  padding-bottom: 6px;
+}
+
+.pb-rs {
+  padding-bottom: 8px;
+}
+
+.pl-s {
+  padding-left: 5px;
+}
+
+.pl-r {
+  padding-left: 10px;
+}
+
+.pl-lg {
+  padding-left: 20px;
+}
+
+// POSITIONING
+
+.ml-50 {
+  position: relative;
+  left: 50%;
+}
+
+.pn-r {
+  position: relative;
+}
+
+.ml-5 {
+  margin-left: 5%;
+}
+
+.ml-s {
+  margin-left: 5px;
+}
+
+.ml-r {
+  margin-left: 10px;
+}
+
+.ml-lg {
+  margin-left: 20px;
+}
+
+.ml-xlg {
+  margin-left: 40px;
+}
+
+.mt-ns {
+  margin-top: -5px;
+}
+
+.mt-xlg {
+  margin-top: 25px;
+}
+
+.mt-lg {
+  margin-top: 20px;
+}
+
+.ml-rlg {
+  margin-left: 16px;
+}
+
+.mt-xs {
+  margin-top: 2px;
+}
+
+.mt-s {
+  margin-top: 5px;
+}
+
+.mt-rs {
+  margin-top: 8px !important;
+}
+
+.mt-r {
+  margin-top: 10px;
+}
+
+.mr-s {
+  margin-right: 6px !important;
+}
+
+.mr-2p {
+  margin-right: 2%;
+}
+
+.mr-1 {
+  margin-right: 1%;
+}
+
+.mr-r {
+  margin-right: 10px;
+}
+
+.mb-r {
+  margin-bottom: 10px;
+}
+
+.mb-lg {
+  margin-bottom: 20px;
+}
+
+.mb-rs {
+  margin-bottom: 8px;
+}
+
+// SVG
+
+.st-xs {
+  stroke-width: 1;
+  stroke: #000;
+}
+
+.fl-no {
+  fill: transparent;
+}
+
+// TEXT
+
+.ta-c {
+  text-align: center;
+}
+
+.ta-l {
+  text-align: left;
+}
+
+.ts-u {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+// SIZES
+
+.w-32 {
+  width: 32px;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.w-80 {
+  width: 80%;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.w-90p {
+  width: 90%;
+}
+
+.w-full-5p {
+  width: 90%;
+  left: 5%;
+}
+
+.w-auto {
+  width: auto;
+}
+
+.over-h {
+  overflow: hidden;
+}
+
+.full-section {
+  padding-bottom: 24px !important;
+}
+
+.arrow {
+  width: 16px;
+  height: 16px;
+  background-color: $popups;
+  position: absolute;
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+  transform: rotate(45deg);
+  box-shadow: 2px -2px 2px 0px $gray-lighter;
+  right: -8px;
+  top: 12px;
+}
+
+// DISABLED
+
+.c-disabled,
+.c-disabled * {
+  color: $gray-lighter;
+}
+
+.bg-disabled {
+  background-color: $gray-lighter;
+}
+
+// LINE HEIGHT
+
+.lh-lg {
+  line-height: 22px;
+}
+
+// COLORS
+
+.c-correct {
+  color: $correct;
+}
+
+// SHADOW
+
+.shadow {
+  box-shadow: 0px 2px 6px 0px $gray-lighter;
+}
+
+// POSITIONS
+
+.pr {
+  position: relative;
+}
+
+.pn-f {
+  position: fixed;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+// CURSORS
+
+.cr-p {
+  cursor: pointer;
+}
