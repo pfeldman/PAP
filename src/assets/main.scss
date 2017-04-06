@@ -1,0 +1,50 @@
+@import "bootstrap";
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.7);
+  z-index: 10000;
+  width: 100%;
+  height: 100%;
+}
+
+.popup {
+  background-color: white;
+  width: 60%;
+  position: absolute;
+  left: 20%;
+  top: 20%;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+.Dropdown-root {
+  background-color: #0071BC;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+
+  .Dropdown-placeholder {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAQCAYAAAAMJL+VAAAACXBIWXMAAAsSAAALEgHS3X78AAAAwUlEQVQ4y7WUwQ3DIAxFnar3skFXyAgZISNkhI6QURihI2QERsgI2eD1AlWKgNiJagkhGfyfDZY7QP5p97gPO98al9V6ERkzHS+A8Gsb0Ee/djlgzXRmQG6FTB4issSMNObi/WfxtFCBpRIHhEr8AnwB4STEH8VpMqlBauIAY7qnLTeHzA3xaZ+I5U0TZGqIv/JKrR+3NcR96Z/OdIdavAWwQEKrleVCnydxdwXQghyKawElyKqdV51xXA9x9ry1AR+SguoKxYWL3wAAAABJRU5ErkJggg==');
+    color: white;
+    background-repeat: no-repeat;
+    background-position: 100%;
+  }
+
+  .Dropdown-option {
+    color: white;
+
+    &:hover {
+      background-color: #0581C6;
+    }
+  }
+}
+
+.levelSelector {
+  .Dropdown-root {
+    width: 150px;
+    margin-top: 15px;
+  }
+}
