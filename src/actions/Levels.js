@@ -1,7 +1,7 @@
 import * as types from '../constants/ActionsTypes'
 import { servicePost } from '../utils/serviceFetch'
 
-function levelsSuccessfull (response) {
+function levelsSuccessful (response) {
   return {
     type: types.LEVELS,
     response
@@ -15,7 +15,7 @@ function fetchLevels () {
 export function getLevels () {
   return dispatch => {
     fetchLevels().then(
-      response => dispatch(levelsSuccessfull(response))
+      response => dispatch(levelsSuccessful(response))
     )
   }
 }

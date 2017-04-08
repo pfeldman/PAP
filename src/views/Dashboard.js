@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import Modal from '../components/Modal'
 import { modal } from '../actions/Modal'
 import Dropdown from 'react-dropdown'
+import { updateLevel } from '../actions/SessionService'
 
 class Dashboard extends React.Component {
   componentDidUpdate = (prevProps) => {
@@ -14,10 +15,23 @@ class Dashboard extends React.Component {
           Parece que es la primera vez que nos vemos! Elegí tu grado para empezar:
           <Dropdown
             options={levels}
+            onChange={this.onSelect}
           />
         </div>
       )))
     }
+  }
+
+  updateLevel = (username, level) => {
+    const { dispatch } = this.props
+
+    dispatch(updateLevel(username, level))
+  }
+
+  onSelect = (param) => {
+    const { value } = param
+    const { username } = this.props
+    this.updateLevel(username, value)
   }
 
   render = () => {
@@ -34,14 +48,16 @@ Dashboard.propTypes = {
   dispatch: PropTypes.func,
   name: PropTypes.string,
   level: PropTypes.number,
-  levels: PropTypes.array
+  levels: PropTypes.array,
+  username: PropTypes.string
 }
 
 function mapStateToProps (state) {
   return {
     name: state.SessionService.name,
     level: state.SessionService.level,
-    levels: state.Levels.options
+    levels: state.Levels.options,
+    username: state.SessionService.username
   }
 }
 

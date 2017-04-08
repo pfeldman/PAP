@@ -7,6 +7,7 @@ function SessionService (state = {}, action) {
         loggedIn: true,
         name: action.name,
         level: action.level,
+        username: action.username,
         loggedInError: false
       })
 
@@ -16,16 +17,24 @@ function SessionService (state = {}, action) {
         loggedIn: false,
         name: null,
         level: null,
+        username: null,
         loggedInError: true
       })
 
       return notLoggedIn
+    case types.LEVEL_UPDATED:
+      let levelUpdated = Object.assign({}, state, {
+        level: parseInt(action.level, 10)
+      })
+
+      return levelUpdated
     default:
       if (localStorage.getItem('loggedIn')) {
         state = Object.assign({}, state, {
           loggedIn: !!localStorage.getItem('loggedIn'),
           name: localStorage.getItem('name'),
           level: parseInt(localStorage.getItem('level'), 10),
+          username: localStorage.getItem('username'),
           loggedInError: false
         })
       }
