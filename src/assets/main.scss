@@ -48,3 +48,83 @@
     margin-top: 15px;
   }
 }
+
+.dashboard {
+  background-color: #A1BBC4;
+  height: 100%;
+  position: fixed;
+  width: 100%;
+}
+
+.gameCard {
+  height: 1.5em;
+  width: 1em;
+  margin-left: 2%;
+  margin-right: 0%;
+  float: left;
+  overflow: hidden;
+  border-radius: 11px;
+  box-shadow: 0 0 10px 1px rgba(0,0,0,.39);
+  cursor: pointer;
+
+  &:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: rotate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  &.memoTest {
+    background-color: #00A99D;
+    margin-left: calc(44% - 1.37em);
+  }
+
+  &.agrupando {
+    background-color: #F7931E;
+  }
+
+  &.circuitos {
+    background-color: #0071BC;
+  }
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: rotate3d(1, 2, -1, -1deg);
+  }
+  
+  20%, 80% {
+    transform: rotate3d(1, 2, -1, 2deg);
+  }
+
+  30%, 50%, 70% {
+    transform: rotate3d(1, 2, -1, -4deg);
+  }
+
+  40%, 60% {
+    transform: rotate3d(1, 2, -1, 4deg);
+  }
+}
+
+.cardContainer {
+  position: fixed;
+  height: 89%;
+  width: 100%;
+  font-size: 250px;
+}
+
+h1 {
+  font-size: 32px;
+  margin-top: 7%;
+  margin-bottom: 5%;
+  width: 100%;
+  text-align: center;
+}
+
+.footer {
+  background-color: red;
+  position: absolute;
+  bottom: 0;
+  height: 11%;
+  width: 100%;
+}

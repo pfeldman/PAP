@@ -4,6 +4,8 @@ import Modal from '../components/Modal'
 import { modal } from '../actions/Modal'
 import Dropdown from 'react-dropdown'
 import { updateLevel } from '../actions/SessionService'
+import GameCard from '../components/GameCard'
+import Footer from '../components/Footer'
 
 class Dashboard extends React.Component {
   componentDidUpdate = (prevProps) => {
@@ -36,8 +38,14 @@ class Dashboard extends React.Component {
 
   render = () => {
     return (
-      <div>
-        <div>DASHBOARD</div>
+      <div className='dashboard'>
+        <div className='cardContainer'>
+          <h1>¿A qué juego quieres jugar hoy?</h1>
+          <GameCard type='memoTest' />
+          <GameCard type='agrupando' />
+          <GameCard type='circuitos' />
+        </div>
+        <Footer />
         <Modal mandatory />
       </div>
     )

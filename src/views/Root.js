@@ -41,7 +41,7 @@ class Root extends React.Component {
         <div>
           <Provider store={this.props.store}>
             <div>
-              <div className='container'>
+              <div>
                 {this.content}
               </div>
             </div>
