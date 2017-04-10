@@ -1,28 +1,28 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { selectGame } from '../actions/Game'
+import { selectArea } from '../actions/Area'
 
-class GameCard extends React.Component {
-  selectGame = () => {
+class AreaCard extends React.Component {
+  selectArea = () => {
     const { type, dispatch } = this.props
 
-    dispatch(selectGame(type))
+    dispatch(selectArea(type))
   }
 
   render = () => {
     const { type } = this.props
 
     return (
-      <div className={'gameCard ' + type} onClick={this.selectGame}>
+      <div className={'areaCard ' + type} onClick={this.selectArea}>
 
       </div>
     )
   }
 }
 
-GameCard.propTypes = {
+AreaCard.propTypes = {
   dispatch: PropTypes.func,
   type: PropTypes.string
 }
 
-export default connect()(GameCard)
+export default connect()(AreaCard)

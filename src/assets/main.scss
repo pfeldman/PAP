@@ -56,6 +56,40 @@
   width: 100%;
 }
 
+.spacer {
+  width: calc(44% - 1.37em);
+  height: 100000px;
+  float: left;
+}
+
+@media only screen and (max-width: 500px) {
+  .spacer {
+    width: calc(48% - 0.5em);
+    height: 100000px;
+    float: left;
+  }
+}
+
+.areaCard {
+  height: 1.5em;
+  width: 1em;
+  margin-left: 2%;
+  margin-right: 0%;
+  float: left;
+  overflow: hidden;
+  border-radius: 11px;
+  box-shadow: 0 0 10px 1px rgba(0,0,0,.39);
+  cursor: pointer;
+  margin-top: 4%;
+
+  &:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: rotate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+}
+
 .gameCard {
   height: 1.5em;
   width: 1em;
@@ -66,6 +100,7 @@
   border-radius: 11px;
   box-shadow: 0 0 10px 1px rgba(0,0,0,.39);
   cursor: pointer;
+  margin-top: 4%;
 
   &:hover {
     animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
@@ -76,7 +111,6 @@
 
   &.memoTest {
     background-color: #00A99D;
-    margin-left: calc(44% - 1.37em);
   }
 
   &.agrupando {
@@ -111,6 +145,7 @@
   height: 89%;
   width: 100%;
   font-size: 250px;
+  overflow-y: auto;
 }
 
 h1 {
@@ -127,4 +162,71 @@ h1 {
   bottom: 0;
   height: 11%;
   width: 100%;
+}
+
+.memoTestGame {
+  margin-top: 2%;
+  height: 87%;
+  overflow-y: auto;
+
+  .memoTestCard {
+    position: relative;
+    float:left;
+    margin-right: 4px;
+    margin-left: 4px;
+    margin-bottom: 8px;
+
+    &.flip {
+      .back {
+        z-index: 900;
+        -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
+      }
+
+      .front {
+        z-index: 1000;
+        -webkit-transform: rotateX(0deg) rotateY(0deg);
+        -moz-transform: rotateX(0deg) rotateY(0deg);
+      }
+    }
+
+    .back {
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      -webkit-transform: rotateX(0deg) rotateY(0deg);
+      -moz-transform: rotateX(0deg) rotateY(0deg);
+      -webkit-transform-style: preserve-3d;
+      -moz-transform-style: preserve-3d;
+      -webkit-backface-visibility: hidden;
+      -moz-backface-visibility: hidden;
+      -webkit-transition: all .4s ease-in-out;
+      -moz-transition: all .4s ease-in-out;
+      -ms-transition: all .4s ease-in-out;
+      -o-transition: all .4s ease-in-out;
+      transition: all .4s ease-in-out;
+      background-color:red;
+    }
+
+    .front {
+      position: absolute;
+      top: 0;
+      z-index: 1000;
+      -webkit-transform: rotateY(-180deg);
+      -moz-transform: rotateY(-180deg);
+      -webkit-transform-style: preserve-3d;
+      -moz-transform-style: preserve-3d;
+      -webkit-backface-visibility: hidden;
+      -moz-backface-visibility: hidden;
+      -webkit-transition: all .4s ease-in-out;
+      -moz-transition: all .4s ease-in-out;
+      -ms-transition: all .4s ease-in-out;
+      -o-transition: all .4s ease-in-out;
+      transition: all .4s ease-in-out;
+
+      img {
+        max-width: 100%;
+      }
+    }
+  }
 }
