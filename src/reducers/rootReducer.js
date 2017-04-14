@@ -5,6 +5,7 @@ import Levels from './Levels'
 import Game from './Game'
 import Area from './Area'
 import MemoTest from './MemoTest'
+import Circuit from './Circuit'
 
 export default combineReducers({
   SessionService,
@@ -12,5 +13,6 @@ export default combineReducers({
   Levels,
   Game,
   Area,
-  MemoTest
+  MemoTest,
+  Circuit
 })

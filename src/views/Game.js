@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react'
 import { connect } from 'react-redux'
 import { getGameKeys } from '../actions/Game'
 import MemoTest from './MemoTest'
+import Circuitos from './Circuitos'
 
 class Game extends React.Component {
   componentDidMount = () => {
@@ -15,6 +16,8 @@ class Game extends React.Component {
     switch (game) {
       case 'memoTest':
         return <MemoTest />
+      case 'circuitos':
+        return <Circuitos />
     }
   }
 }

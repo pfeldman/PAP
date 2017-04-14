@@ -5,3 +5,7 @@ dist/**
 src/index.html
 src/views/App.js
 src/constants
+src/utils/EasePack.js
+src/utils/ThrowPropsPlugin.js
+src/TweenLite.js
+src/components/CircuitDraggableCard.js
