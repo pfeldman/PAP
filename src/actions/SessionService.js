@@ -22,7 +22,6 @@ function loginSuccessful (response) {
 }
 
 function levelUpdatedSuccessful (level) {
-  console.log(level)
   localStorage.setItem('level', level)
   return {
     type: types.LEVEL_UPDATED,
@@ -57,5 +56,16 @@ export function updateLevel (username, level) {
     postUpdateLevel(username, level).then(
       response => dispatch(levelUpdatedSuccessful(level))
     )
+  }
+}
+
+export function logout () {
+  localStorage.removeItem('loggedIn')
+  localStorage.removeItem('name')
+  localStorage.removeItem('level')
+  localStorage.removeItem('username')
+
+  return {
+    type: types.LOGOUT
   }
 }

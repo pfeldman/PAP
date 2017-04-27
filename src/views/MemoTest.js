@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import _ from 'underscore'
 import MemoTestCard from '../components/MemoTestCard'
 import { flip, save } from '../actions/MemoTest'
+import { win } from '../actions/Game'
 
 class MemoTest extends React.Component {
   constructor (props) {
@@ -15,19 +16,22 @@ class MemoTest extends React.Component {
 
   flipped = (details) => {
     const { dispatch, flippedCard } = this.props
+    const { okSound, failSound } = this.refs
     if (flippedCard === -1) {
       dispatch(flip(details.id))
     } else {
       if (parseInt(details.id, 10) === flippedCard) {
         dispatch(save(flippedCard))
+        okSound.play()
       } else {
         dispatch(flip(-1))
+        failSound.play()
       }
     }
   }
 
   componentDidUpdate = (prevProps) => {
-    const { gameDetails, correctCards } = this.props
+    const { gameDetails, correctCards, dispatch } = this.props
 
     let options = []
     if (gameDetails && !prevProps.gameDetails) {
@@ -49,7 +53,7 @@ class MemoTest extends React.Component {
     }
 
     if (correctCards.substr(1, correctCards.length).split(',').length === gameDetails.length) {
-      alert('GANASTE')
+      dispatch(win())
     }
   }
 
@@ -67,12 +71,14 @@ class MemoTest extends React.Component {
       for (let i = 0; i < rowsLength; i++) {
         rows.push(i)
       }
-      const windowSize = window.innerHeight * 87 / 100
+      const windowSize = window.innerHeight * 67 / 100
       const margin = 8
       const height = windowSize / rowsLength - margin
       const width = (height / 3) * 2
       return (
         <div className='memoTestGame'>
+          <audio ref='okSound' src='http://pasitoapaso.themonstera.com/ok.mp3' preload='auto' />
+          <audio ref='failSound' src='http://pasitoapaso.themonstera.com/fail.mp3' preload='auto' />
           {rows.map((row, index) => {
             return (
               <div

@@ -12,6 +12,16 @@ function SessionService (state = {}, action) {
       })
 
       return loggedIn
+    case types.LOGOUT:
+      let logout = Object.assign({}, state, {
+        loggedIn: false,
+        name: undefined,
+        lavel: undefined,
+        username: undefined,
+        loggedInError: false
+      })
+
+      return logout
     case types.LOGIN_ERROR:
       let notLoggedIn = Object.assign({}, state, {
         loggedIn: false,

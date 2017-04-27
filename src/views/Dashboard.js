@@ -50,9 +50,20 @@ class Dashboard extends React.Component {
     }
   }
 
+  getStyle = () => {
+    const { game, area, gameDetails } = this.props
+    let ret = {}
+    if (game && area && gameDetails && gameDetails[0].background) {
+      ret = {
+        'backgroundColor': gameDetails[0].background
+      }
+    }
+    return ret
+  }
+
   render = () => {
     return (
-      <div className='dashboard'>
+      <div className='dashboard' style={this.getStyle()}>
         {this.dashboardContent}
         <Footer />
         <Modal mandatory />
@@ -68,7 +79,8 @@ Dashboard.propTypes = {
   levels: PropTypes.array,
   username: PropTypes.string,
   game: PropTypes.string,
-  area: PropTypes.string
+  area: PropTypes.string,
+  gameDetails: PropTypes.array
 }
 
 function mapStateToProps (state) {
@@ -78,7 +90,8 @@ function mapStateToProps (state) {
     levels: state.Levels.options,
     username: state.SessionService.username,
     game: state.Game.game,
-    area: state.Area.area
+    area: state.Area.area,
+    gameDetails: state.Game.gameDetails
   }
 }
 

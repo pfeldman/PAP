@@ -14,6 +14,12 @@ function Game (state = {}, action) {
       })
 
       return gameDetails
+    case types.WIN:
+      let win = Object.assign({}, state, {
+        win: (new Date()).getTime()
+      })
+
+      return win
     default:
       return state
   }

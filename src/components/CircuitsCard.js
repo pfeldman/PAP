@@ -5,7 +5,7 @@ import { resetCard, correct } from '../actions/Circuit'
 
 class CircuitsCard extends React.Component {
   componentDidUpdate = (prevProps) => {
-    const { droppedCard, changed, dropedPosition, index, dispatch } = this.props
+    const { droppedCard, changed, dropedPosition, index, dispatch, ok, fail } = this.props
     const card = this.refs['card' + index]
     if (prevProps.changed !== changed) {
       const position = droppedCard.target.getBoundingClientRect()
@@ -29,8 +29,11 @@ class CircuitsCard extends React.Component {
             marginRight: 0,
             marginLeft: 0
           }, 500)
+
+          ok()
           dispatch(correct())
         } else {
+          fail()
           dispatch(resetCard(droppedCard.target))
         }
       }
@@ -81,7 +84,9 @@ CircuitsCard.propTypes = {
   droppedCard: PropTypes.object,
   changed: PropTypes.number,
   dropedPosition: PropTypes.string,
-  dispatch: PropTypes.func
+  dispatch: PropTypes.func,
+  ok: PropTypes.func,
+  fail: PropTypes.func
 }
 
 function mapStateToProps (state) {

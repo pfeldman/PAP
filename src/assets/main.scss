@@ -52,6 +52,13 @@
   }
 }
 
+.level {
+  font-weight: normal;
+  font-size: 20px;
+  padding-top: 29px;
+  float: left;
+}
+
 .levelSelector {
   .Dropdown-root {
     width: 150px;
@@ -233,16 +240,58 @@ h1 {
 }
 
 .footer {
-  background-color: red;
+  border-top: 1px solid #6D6C6C;
   position: absolute;
   bottom: 0;
   height: 11%;
-  width: 100%;
+  width: 80%;
+  left: 10%;
+
+  .endSession {
+    cursor: pointer;
+    
+    label {
+      float: left;
+      color: red;
+      margin-top: 24px;
+      margin-right: 14px;
+      cursor: pointer;
+    }
+
+    img {
+      float: left;
+      width: 35px;
+      margin-top: 16px;
+    }
+  }
+
+  .Dropdown-root {
+    float: left;
+    width: 170px;
+    margin-top: 22px;
+    margin-left: 20px;
+  }
+}
+
+.gameHeader {
+  .counter {
+    height: 118px;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+}
+
+.time {
+  color: white;
+  font-size: 38px;
+  margin-left: -114px;
+  position: relative;
+  top: 20px;
 }
 
 .memoTestGame {
   margin-top: 2%;
-  height: 87%;
+  height: 20%;
   overflow-y: auto;
 
   .memoTestCard {

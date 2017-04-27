@@ -7,7 +7,8 @@ function Levels (state = {}, action) {
       Object.keys(action.response).map(key => {
         options.push({
           value: key,
-          label: action.response[key]
+          label: action.response[key].data.label,
+          time: action.response[key].data.time
         })
       })
       let levels = Object.assign({}, state, {

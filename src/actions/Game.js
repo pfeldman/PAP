@@ -30,3 +30,9 @@ export function getGameKeys (game, area, level) {
     )
   }
 }
+
+export function win () {
+  return {
+    type: types.WIN
+  }
+}
