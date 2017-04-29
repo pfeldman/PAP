@@ -37,7 +37,8 @@ class CircuitDraggableCard extends React.Component {
         })
         $(this.refs['card' + card.id]).addClass('dragging')
       },
-      onDragEnd: (el) => {
+      onDragEnd: (els) => {
+        let elsa = this.refs['card' + card.id]
         this.props.dispatch(dropCard(el, card.posicion))
       }
     })
@@ -60,7 +61,7 @@ class CircuitDraggableCard extends React.Component {
     const { width, card } = this.props
     return (
       <div
-        className='circuitDraggableCard'
+        className={'circuitDraggableCard aa' + card.id}
         ref={'card' + card.id}
         style={{
           width: width,

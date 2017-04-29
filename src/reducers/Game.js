@@ -20,6 +20,13 @@ function Game (state = {}, action) {
       })
 
       return win
+    case types.RESET:
+      let reset = Object.assign({}, state, {
+        game: undefined,
+        gameDetails: undefined
+      })
+
+      return reset
     default:
       return state
   }

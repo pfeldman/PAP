@@ -8,7 +8,7 @@ class CircuitsCard extends React.Component {
     const { droppedCard, changed, dropedPosition, index, dispatch, ok, fail } = this.props
     const card = this.refs['card' + index]
     if (prevProps.changed !== changed) {
-      const position = droppedCard.target.getBoundingClientRect()
+      const position = droppedCard.getBoundingClientRect()
       const draggableTop = position.top
       const draggableLeft = position.left
       const draggableBottom = position.bottom
@@ -17,13 +17,13 @@ class CircuitsCard extends React.Component {
 
       if (parseInt(dropedPosition, 10) === index) {
         if (isCollision && parseInt(dropedPosition, 10) === index) {
-          $(droppedCard.target).addClass('correct')
-          $(droppedCard.target).css({
+          $(droppedCard).addClass('correct')
+          $(droppedCard).css({
             'position': 'absolute',
             'left': draggableLeft,
             'top': draggableTop
           })
-          $(droppedCard.target).animate({
+          $(droppedCard).animate({
             left: card.offsetLeft,
             top: card.offsetTop,
             marginRight: 0,
@@ -34,7 +34,7 @@ class CircuitsCard extends React.Component {
           dispatch(correct())
         } else {
           fail()
-          dispatch(resetCard(droppedCard.target))
+          dispatch(resetCard(droppedCard))
         }
       }
     }

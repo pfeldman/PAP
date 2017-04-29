@@ -20,6 +20,26 @@
   height: 100%;
 }
 
+.counterContainer {
+  float: left;
+}
+
+.closeGame {
+  float: right;
+
+  img {
+    width: 77%;
+    float: right;
+    margin-top: -25px;
+    margin-right: -8px;
+    cursor: pointer;
+  }
+}
+
+.gameHeader {
+  overflow: hidden;
+}
+
 .popup {
   background-color: white;
   width: 60%;
@@ -88,9 +108,20 @@
 }
 
 .circuitosContainer {
+  margin-top: 20px;
+
   .availableSpaces {
     padding-left: 5%;
   }
+}
+
+.availableCards {
+  width: 100%;
+  margin-top: 20px;
+  float: left;
+  background-color: rgba(0,0,0, 0.1);
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .moved {
@@ -127,6 +158,9 @@
   background-size: 100%;
   cursor: pointer;
   transition: box-shadow 0.3s ease-in-out;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 85%;
 
   &.correct {
     transform: initial !important;
@@ -144,7 +178,7 @@
   margin-right: 1%;
   margin-left: 1%;
   color: #0071BC;
-  font-size: 133px;
+  font-size: 84px;
   text-align: center;
   border-radius: 12px;
   border: 2px dashed rgba(0,113,188, 0.5);

@@ -40,13 +40,22 @@ class Dashboard extends React.Component {
 
   get dashboardContent () {
     const { game, area } = this.props
-
     if (game && area) {
       return <Game />
     } else if (game) {
-      return <AreaSelector />
+      return (
+        <div>
+          <AreaSelector />
+          <Footer />
+        </div>
+      )
     } else {
-      return <GameSelector />
+      return (
+        <div>
+          <GameSelector />
+          <Footer />
+        </div>
+      )
     }
   }
 
@@ -65,7 +74,6 @@ class Dashboard extends React.Component {
     return (
       <div className='dashboard' style={this.getStyle()}>
         {this.dashboardContent}
-        <Footer />
         <Modal mandatory />
       </div>
     )

@@ -36,3 +36,9 @@ export function win () {
     type: types.WIN
   }
 }
+
+export function reset () {
+  return {
+    type: types.RESET
+  }
+}

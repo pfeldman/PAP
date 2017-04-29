@@ -60,8 +60,8 @@ class MemoTest extends React.Component {
   render = () => {
     const { gameDetails, flippedCard, correctCards } = this.props
     if (gameDetails && this.state.options.length) {
-      const columnsLength = Math.ceil(Math.sqrt(gameDetails.length * 2))
-      const rowsLength = (gameDetails.length * 2) / columnsLength
+      const columnsLength = gameDetails.length * 2 / 3
+      const rowsLength = 3
       let options = _.clone(this.state.options)
       let rows = []
       let columns = []

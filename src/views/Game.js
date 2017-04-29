@@ -32,17 +32,26 @@ class Game extends React.Component {
       })
     }
 
-    if (gameDetails !== prevProps.gameDetails) {
+    if (gameDetails !== prevProps.gameDetails && gameDetails) {
       window.setInterval(() => {
-        this.setState({
-          time: this.state.time - 1
-        })
+        if (gameDetails) {
+          this.setState({
+            time: this.state.time - 1
+          })
+        }
       }, 1000)
     }
   }
 
+  closeGmae = () => {
+    location.reload()
+  }
+
   getHeader = () => {
     const { time } = this.state
+    if (time === 14 || time === 9 || time === 4) {
+      this.refs.tick.play()
+    }
     let timeNiceMin = Math.floor(time/60)
     let timeNiceSecs = time
     if (timeNiceMin > 0) {
@@ -50,6 +59,13 @@ class Game extends React.Component {
     }
     if (timeNiceSecs.toString().length === 1) {
       timeNiceSecs = '0' + timeNiceSecs
+    }
+
+    if (timeNiceMin < 0) {
+      timeNiceMin = 0
+    }
+    if (timeNiceSecs < 0) {
+      timeNiceSecs = 0
     }
     return (
       <div className='gameHeader'>
@@ -128,6 +144,43 @@ class Game extends React.Component {
               {timeNiceMin}:{timeNiceSecs}
             </label>
           </div>
+          <div className='closeGame' onClick={this.closeGmae}>
+            <img src={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKYAAACjCAYAAAAARWXEAAAACXBIWXMAAAsSAAALEgHS3X7' +
+              '8AAAJw0lEQVR42u2dPW8byR2Hf7uWLPiwBzKA09wVolNdJ6ZJdxAP+QCmq6SKqXqLMPcFTH0DGghrr/IFTq5SCVjhUl0KU507U4XT' +
+              '5ICIMZFY0lmTgrO5JcWXfZndnZ35PYBwMnwiqdnH/5fZmVlHCAGymtnIaQJoA2jJr+jPEW0AjTU/fh77fgzgCsBEfo09X1xxhNfjU' +
+              'MwFCTtSts4W6VQwlcKG8r9jzxcTXgmKidnI6UoJOwAONPhIl1LUEMCpzVHVOjFnI6cHIBKyofnHvQAQSEknFNM8GTsAIiEbNf01Lg' +
+              'AMbYmkxoopa8YegD6AfcN+vRMAgeeLkGLWR8iWlLFX4+iYKop6vggopt5CDgA8t7BXuJS16NCUNF97MWXKHloq5DJTORa1F7TWYs5' +
+              'GzkCm7QadvCdov84pvpZiyi47MLCpKSLF9+rYJNVKTJm2AwBP6VwqzqWgk7p8YLdGUnYxv89MKdNzCOCdLH0YMRklteRCRs8xI2a+' +
+              'WpJRUi0HAN7oHj21jZhy4F7QIzujp3ZiMnWXjpZTS1qJORs5bSnlAX0pnRMp6BXFvC9lCE6WV53auzpMK7maSNkD8IZSatEYjWWQs' +
+              'FtMKeUrOqENDdm196wVU3belFJPXlUpZ2U15mzkBOCKoDrw0vNF3woxKWX9OnbPF6VGT5dSkgQ8l9fNTDFlzUIpKac+YrL7NkbOoT' +
+              'E1plyy9h2vqzEcFX0Ls3AxeUeHcmonplyQMaGUxvLrolYmuQVLyUhpNqHcNl2r5mcIrhIynQaAUxmE9BdzNnL64LSQLRzIIKR3jSm' +
+              'bnTe8XtbxJ88XQy3FlCF9DO73ZjOkWSoPKKXVKKs3lYkpJ9G5T8du9mVw0iOVyymDMTg1ROY883xxqkPEDCglifuQN6XnFlNODR3y' +
+              'WpAYjbwpPVcq5y1HUlRKzxsxmcLJJoZZU3pmMeW5QuzCybYuPdN+ocypfDZyJuCcJUnGk7SHKLgZpRxQSpKy5Cs2YrLhIRn5Js2R2' +
+              '1ki5oBSkiyNUGERU97heccxJhlJvB0jbcQccGxJDhL7k1hMGS25+JfkYT/peUhuEbYTktejRGIyWpKyo6ar0nJCErJVzK1duZy3/B' +
+              'fHkihm47xmkojZ5xiSsqOmm/cFCMnI800rj9wtabwH3hMnFURNN+sPEqKAfmox5RQRt0yQItmX63pTRUw2PaSydL5JzC7HjJRAN7G' +
+              'Y8vACNj2kDBrSt0QRk9GSVBo1KSaph5gyrHKFOik7nbe3RUxGS1J5d75KzA7HiFTAgncLq4t4GjCpmF94vrhaFTGZxokWUdNlGid1' +
+              'EJP3xkmVtO+Jue5mOiElcrgqYlJMUjnRfCbFJFqmc5f1JdFWzOXbQYToEjEpJtGFVlzMFseDaMJ+XEw2PkSrzpwRk+hI042HT0J0q' +
+              'TNd3vEhOoq5wzFYjfu4jb2vh3jwxc/Tuz+9e42b7/u4+zBR/l4PfzPAzpOfH5v06R/nuP6+j7sfx3aOPxuf++x+1cNnv3uzICUA7D' +
+              'x5ike/H8N93FYq5aNn4YKUAPDgi0M8ehYqfa+6iUmWpNz77au1f+88bCgTJpLSedgo/L1qRscFJ9cTS6lSmG1S2i6nC6BJJZNLqUK' +
+              'YpFLaLCdTeQYp8wiTVkpb5bQ+lbuft/Dw62Hmn08jTFYpl9/L2WtaIabVhxvsHvQzi5JGzrxSxt9r56seU7nxA/BLNQljk5yqpIzY' +
+              '+VWXYpJ8cqqWks2PJYh/TwqTsygp7/5p/N2g0PnwZwir/2V+3sJnf1D/QGFxO5uLuuspf+3//OWJ8tuimnFsfcS8+zDB9dmR+rS+6' +
+              'xUi5fXZkelSMpVH3L4NCpGzCClv3wY2XJIxxayJnBZJCQBXFLMGclomJQBMKKbmclooJTxfTFwAU+qop5w2SgngImp+xlRRPzktlR' +
+              'KRj0zlGsppsZQAMInEvKKC+shpuZQAEDKVayYnpQQ8X4RM5SnlvPnhRWGvf/PDC+uljBqfSMyQ2m3HfdzGbvvbwl5/t/2ttTsil9M' +
+              '4a8wUUha9dM3iHZErxXSEEJiNHEH9qpMyjriZ4r/fdWw86GDq+aIZj5gLuZ1UJ6XlkXOhpIzEZGeugZSWy3lKMTWW0lI5pxSzBlJa' +
+              'KOdp9AzJBTGjSU1Kqd/GMUvkDO5di9j355RSz92Mhst5uSowuuu6IkpJOUtisPKarOuKbMHZa9Zm37eBR8RM13n3fzE9X4xh4aJhF' +
+              'UfErOL67KiY3ZdmHREzXG56VkVMK6Pmgy87hUh5+zYobFWSIUfETAGsPc3MejGLkjKiLluDdYqW98T0fHFqWzpXeUTMuvWUquU04I' +
+              'iYjdFyVcS0LmqqWgO5bZGvSjkNWLfZ3xQt14k5tEnMT+9D3F68LFRKlXJenx3VfeXRueeLrYN1T0zZnV9aVRf+rY+f3p4UKqUKOQ3' +
+              'ZetFP8j+t21oxsK0S/3jWSy1nVlGyyGmIlMcy8GUW07omKK2ceUVJI6chUl54vkgc8FaKKQvTISwkiZyqREkipyFSTgH00vzApl2S' +
+              'ASzl41kPN38/hrhZTBriZoqPf32mVJRIzlXvZdB23n7SFB7hCLF+u89s5AQAntsqqLPXhPu4jQdfdvDpfYhP78PS3uvuxzHEtRH7B' +
+              'E88X/RSj8cWMVsA3oGQjHUlgM62Ocu0qRyeLyYAjjm+JGNdmUnKrWJKhuBRhaREKROJKV98wLEmKaXMdXtqY425VG+OARxw3EnRUi' +
+              'ZN5RE9jjspQ8pUYso3ZCNECpcyVSpnSidlSZk2lcdTOrt0AsznKVuqpcwkpvwQfV4T63mNnFNCSlN5LKUHsPh2peW89HxRaHDKLCb' +
+              'rTWvryX6SFehV1JhxOrBstbvl9WSnDClziynriy6bIeM5KaLzLiyVx1J6G/Ozjxq8hsal7p7c1l0qSh6nIv8ldRg5jeIcQLsKKZVF' +
+              'TEZO46LkwPNFpVtrlIpJOY2Ikj25DhdGiUk5WUtqU2NuqDn5mBb9Ocb8tqJWRwMVEjFjkbOJ+R71Q15/pm1txIwJOgTwR7qgjZAD3' +
+              'R8IUYqYUs4u5nvVWXdWw6UUMqjDhy1NTClnC/PNbU/pCYXURsyYoB3MN7ix9iw2ZQ91a2q0FpOCFsoJgKDuDxWrVEwKqozo6OhA1y' +
+              '67lmIu1aADzFcssUnazmvMn8MYmPaLaSVmTNCmlLMPLkRe5gLz2Y1TU6JjbcRckrSN+Qa4LoB9ymiujLUS01JJp5ivNTgFENoiY23' +
+              'FXFGPdjG/J98xoCY9lzKGfEx3jcVcE00jSduaR9RLAGMp4pgiGizmmgYqkrUlv9olR9YLAFdSwCtKSDGTRNdmTFgsfZ+GcMX3Exvr' +
+              'QpX8DwJzr3n4o6HKAAAAAElFTkSuQmCC'} />
+          </div>
       </div>
     )
   }
@@ -150,6 +203,7 @@ class Game extends React.Component {
 
     return (
       <div>
+        <audio ref='tick' src='http://pasitoapaso.themonstera.com/tick.mp3' preload='auto' />
         {this.getHeader()}
         {gameUI}
         {fireworks}
@@ -165,7 +219,7 @@ Game.propTypes = {
   level: PropTypes.number,
   newWin: PropTypes.number,
   levels: PropTypes.array,
-  gameDetails: PropTypes.object
+  gameDetails: PropTypes.array
 }
 
 function mapStateToProps (state) {

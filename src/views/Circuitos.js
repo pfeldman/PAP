@@ -6,12 +6,33 @@ import CircuitDraggableCard from '../components/CircuitDraggableCard'
 import { win } from '../actions/Game'
 
 class Circuitos extends React.Component {
-  componentDidUpdate = () => {
+  constructor (props) {
+    super(props)
+    this.state = {
+      details: []
+    }
+  }
+
+  componentDidUpdate = (prevProps) => {
     const { gameDetails, corrects, dispatch } = this.props
 
     if (gameDetails) {
       if (corrects === gameDetails.length) {
         dispatch(win())
+      }
+
+      if (gameDetails !== prevProps.gameDetails) {
+        const copy = JSON.parse(JSON.stringify(gameDetails))
+        let shuffled = []
+        while (copy.length) {
+          let position = Math.floor((Math.random() * copy.length))
+          shuffled.push(copy[position])
+          copy.splice(position, 1)
+        }
+
+        this.setState({
+          details: shuffled
+        })
       }
     }
   }
@@ -40,13 +61,13 @@ class Circuitos extends React.Component {
 
   render = () => {
     const { gameDetails } = this.props
-    if (gameDetails) {
+    if (gameDetails && this.state.details.length) {
       const max = parseInt(_.max(gameDetails, detail => {
         return detail.posicion
       }).posicion, 10)
       const cards = new Array(max)
       cards.fill(null)
-      const windowSize = window.innerWidth * (90 - (6*cards.length)) / 100
+      const windowSize = window.innerWidth * (90 - (6 * cards.length)) / 100
       return (
         <div className='circuitosContainer'>
           <audio ref='okSound' src='http://pasitoapaso.themonstera.com/ok.mp3' preload='auto' />
@@ -106,7 +127,7 @@ class Circuitos extends React.Component {
             })}
           </div>
           <div className='availableCards'>
-            {gameDetails.map((card, index) => (
+            {this.state.details.map((card, index) => (
               <CircuitDraggableCard
                 key={'CircuitDraggableCard-' + index}
                 width={windowSize / gameDetails.length}
