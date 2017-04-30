@@ -11,18 +11,29 @@ class GameCard extends React.Component {
 
   render = () => {
     const { type } = this.props
+    let title = ''
     let text = ''
-    if (type === 'agrupando') {
-      text = 'AGRU-\nPANDO'
+    if (type === 'memoTest') {
+      title = 'Memotest'
+      text = 'Consiste encontrar los pares de cartas que contienen los mismos dibujos'
+    } else if (type === 'agrupando') {
+      title = 'Agrupando'
+      text = 'Consiste encontrar los pares de cartas que contienen los mismos dibujos'
     } else if (type === 'circuitos') {
-      text = 'CIR-\nCUITOS'
+      title = 'Circuitos'
+      text = 'Consiste encontrar los pares de cartas que contienen los mismos dibujos'
     }
-
     return (
-      <div className={'gameCard ' + type} onClick={this.selectGame}>
-        <div className='cardContent'>
-          <span>{text.split('\n')[0]}</span>
-          <span>{text.split('\n')[1]}</span>
+      <div className='col-md-6'>
+        <div className={'gameCard ' + type} onClick={this.selectGame}>
+          <div className='cardContent'>
+            <div className='col-md-5'>
+            </div>
+            <div className='col-md-7 rightInfo'>
+              <h2>{title}</h2>
+              <p>{text}</p>
+            </div>
+          </div>
         </div>
       </div>
     )

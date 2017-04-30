@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react'
 import { connect } from 'react-redux'
 import Modal from '../components/Modal'
 import { modal } from '../actions/Modal'
-import Dropdown from 'react-dropdown'
+import LevelSelector from '../components/LevelSelector'
 import { updateLevel } from '../actions/SessionService'
 import Footer from '../components/Footer'
 import GameSelector from './GameSelector'
@@ -10,34 +10,37 @@ import AreaSelector from './AreaSelector'
 import Game from './Game'
 
 class Dashboard extends React.Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      modalShown: false
+    }
+  }
   componentDidUpdate = (prevProps) => {
+    this.showLevelModal(false, prevProps)
+  }
+
+  componentDidMount = () => {
+    this.showLevelModal(true)
+  }
+
+  showLevelModal = (force, prevProps) => {
     const { level, dispatch, name, levels } = this.props
-    if (!level && levels && prevProps.levels !== levels) {
+    if (!level && levels && (force || !force && prevProps.levels !== levels)) {
+      this.setState({
+        modalShown: true
+      })
       dispatch(modal(true, (
         <div className='levelSelector'>
           <b>Bienvenido/a {name}!</b><br />
           Parece que es la primera vez que nos vemos! Elegí tu grado para empezar:
-          <Dropdown
+          <LevelSelector
             options={levels}
             onChange={this.onSelect}
           />
         </div>
       )))
-    }
-  }
-
-  componentDidMount = () => {
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-      const elem = document.body
-      if (elem.requestFullscreen) {
-        elem.requestFullscreen()
-      } else if (elem.msRequestFullscreen) {
-        elem.msRequestFullscreen()
-      } else if (elem.mozRequestFullScreen) {
-        elem.mozRequestFullScreen()
-      } else if (elem.webkitRequestFullscreen) {
-        elem.webkitRequestFullscreen()
-      }
     }
   }
 
@@ -51,6 +54,9 @@ class Dashboard extends React.Component {
     const { value } = param
     const { username } = this.props
     this.updateLevel(username, value)
+    this.setState({
+      modalShown: false
+    })
   }
 
   get dashboardContent () {
@@ -60,15 +66,16 @@ class Dashboard extends React.Component {
     } else if (game) {
       return (
         <div>
-          <AreaSelector />
           <Footer />
+          <GameSelector />
+          <AreaSelector />
         </div>
       )
     } else {
       return (
         <div>
-          <GameSelector />
           <Footer />
+          <GameSelector />
         </div>
       )
     }
@@ -79,22 +86,30 @@ class Dashboard extends React.Component {
     let ret = {}
     if (game && area && gameDetails && gameDetails[0].background) {
       ret = {
-        'backgroundColor': gameDetails[0].background
+        'backgroundImage': 'radial-gradient(circle at 50% 46%, rgba(' + gameDetails[0].background + ', 0.5), rgb(' + gameDetails[0].background + ')'
       }
     }
     return ret
   }
 
   render = () => {
-    return (
-      <div className='dashboard' style={this.getStyle()}>
-        {this.dashboardContent}
-        <Modal mandatory />
-        <div className='warning'>
-          Para poder disfrutar mejor del juego, por favor gire su dispositivo
+    const { level } = this.props
+    if (this.state.modalShown) {
+      return (
+        <div className='loginView'>
+          <Modal mandatory />
         </div>
-      </div>
-    )
+      )
+    } else {
+      return (
+        <div className={'dashboard level' + level} style={this.getStyle()}>
+          {this.dashboardContent}
+          <div className='warning'>
+            Para poder disfrutar mejor del juego, por favor gire su dispositivo
+          </div>
+        </div>
+      )
+    }
   }
 }
 
