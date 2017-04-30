@@ -40,6 +40,7 @@ class CircuitDraggableCard extends React.Component {
       onDragEnd: (els) => {
         let elsa = this.refs['card' + card.id]
         this.props.dispatch(dropCard(el, card.posicion))
+        $(this.refs['card' + card.id]).removeClass('dragging')
       }
     })
   }

@@ -75,6 +75,9 @@ class Dashboard extends React.Component {
       <div className='dashboard' style={this.getStyle()}>
         {this.dashboardContent}
         <Modal mandatory />
+        <div className='warning'>
+          Para poder disfrutar mejor del juego, por favor gire su dispositivo
+        </div>
       </div>
     )
   }

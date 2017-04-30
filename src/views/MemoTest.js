@@ -22,9 +22,13 @@ class MemoTest extends React.Component {
     } else {
       if (parseInt(details.id, 10) === flippedCard) {
         dispatch(save(flippedCard))
+        okSound.pause()
+        okSound.currentTime = 0
         okSound.play()
       } else {
         dispatch(flip(-1))
+        failSound.pause()
+        failSound.currentTime = 0
         failSound.play()
       }
     }
@@ -111,7 +115,10 @@ class MemoTest extends React.Component {
         </div>
       )
     } else {
-      return <div>LOADING</div>
+      return (
+        <div className='loading'>
+        </div>
+      )
     }
   }
 }

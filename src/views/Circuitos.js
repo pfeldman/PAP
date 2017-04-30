@@ -39,11 +39,15 @@ class Circuitos extends React.Component {
 
   ok = () => {
     const { okSound } = this.refs
+    okSound.pause()
+    okSound.currentTime = 0
     okSound.play()
   }
 
   fail = () => {
     const { failSound } = this.refs
+    failSound.pause()
+    failSound.currentTime = 0
     failSound.play()
   }
 
@@ -68,6 +72,9 @@ class Circuitos extends React.Component {
       const cards = new Array(max)
       cards.fill(null)
       const windowSize = window.innerWidth * (90 - (6 * cards.length)) / 100
+      const realWidth = (windowSize / gameDetails.length) + (window.innerWidth * 2 / 100)
+      const padding = (window.innerWidth - realWidth * gameDetails.length) / 2
+
       return (
         <div className='circuitosContainer'>
           <audio ref='okSound' src='http://pasitoapaso.themonstera.com/ok.mp3' preload='auto' />
@@ -88,7 +95,8 @@ class Circuitos extends React.Component {
                       style={{
                         marginTop: ((windowSize / cards.length) + ((windowSize / cards.length) / 2)) / 2,
                         position: 'relative',
-                        top: (((((windowSize / cards.length) + ((windowSize / cards.length) / 2)) / 2) * 41) / 100) / -2
+                        top: ((((((windowSize / cards.length) + ((windowSize / cards.length) / 2)) / 2) * 41) / 100) /
+                          -2) - 10
                       }}
                       src={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABJCAYAAACEjYBsAAAACXBIWXMAAAsSAAALE' +
                         'gHS3X78AAAGI0lEQVR42u1bTWskRRh+ZgiIIEwpeFmU9EHEW9qTYNpk9CCChx1ZT14ywauQyWKft3fxlD44e/KYyQ9' +
@@ -126,7 +134,10 @@ class Circuitos extends React.Component {
               )
             })}
           </div>
-          <div className='availableCards'>
+          <div className='availableCards' style={{
+            'paddingLeft': padding,
+            'height': ((windowSize / gameDetails.length) + ((windowSize / gameDetails.length) / 2)) + 40
+          }}>
             {this.state.details.map((card, index) => (
               <CircuitDraggableCard
                 key={'CircuitDraggableCard-' + index}
@@ -138,7 +149,10 @@ class Circuitos extends React.Component {
         </div>
       )
     } else {
-      return <div>LOADING</div>
+      return (
+        <div className='loading'>
+        </div>
+      )
     }
   }
 }

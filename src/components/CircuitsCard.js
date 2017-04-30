@@ -18,14 +18,17 @@ class CircuitsCard extends React.Component {
       if (parseInt(dropedPosition, 10) === index) {
         if (isCollision && parseInt(dropedPosition, 10) === index) {
           $(droppedCard).addClass('correct')
+          let containerTop = $('.availableCards').offset().top
+
           $(droppedCard).css({
             'position': 'absolute',
             'left': draggableLeft,
-            'top': draggableTop
+            'top': draggableTop - containerTop
           })
+
           $(droppedCard).animate({
             left: card.offsetLeft,
-            top: card.offsetTop,
+            top: card.offsetTop - containerTop,
             marginRight: 0,
             marginLeft: 0
           }, 500)
@@ -48,10 +51,12 @@ class CircuitsCard extends React.Component {
     const cardLeft = card.offsetLeft
     const cardBottom = cardTop + card.clientHeight
     const cardRight = cardLeft + card.clientWidth
-    const verticalIn = (top >= cardTop - 10 && top - 10 <= cardBottom) ||
-      (bottom >= cardTop -10 && bottom + 10 <= cardBottom)
-    const horizontalIn = (left >= cardLeft - 10 && left - 10 <= cardRight) ||
-      (right >= cardLeft + 10 && right + 10 <= cardRight)
+    const verticalIn = ((top >= cardTop - 10 && top - 10 <= cardBottom) ||
+      (bottom >= cardTop -10 && bottom + 10 <= cardBottom)) || (top < cardTop && bottom > cardBottom)
+
+    const horizontalIn = ((left >= cardLeft - 10 && left - 10 <= cardRight) ||
+      (right >= cardLeft + 10 && right + 10 <= cardRight)) || (left < cardLeft && right > cardRight) ||
+      (left < cardLeft && right > cardLeft)
 
     if (verticalIn && horizontalIn) {
       collision = true

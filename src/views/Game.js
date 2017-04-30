@@ -10,7 +10,9 @@ class Game extends React.Component {
 
     this.state = {
       isWinner: false,
-      time: 0
+      time: 0,
+      isLooser: false,
+      nearLoose: false
     }
   }
 
@@ -30,14 +32,34 @@ class Game extends React.Component {
       this.setState({
         isWinner: true
       })
+      this.refs.tick.pause()
     }
 
     if (gameDetails !== prevProps.gameDetails && gameDetails) {
       window.setInterval(() => {
-        if (gameDetails) {
-          this.setState({
-            time: this.state.time - 1
-          })
+        if (gameDetails && !this.state.isWinner && !this.state.isLooser) {
+          if (this.state.time === 1) {
+            this.setState({
+              isLooser: true,
+              time: 0
+            })
+          } else {
+            if (this.state.time === 13) {
+              this.setState({
+                time: this.state.time - 1,
+                nearLoose: true
+              })
+            } else if (this.state.time === 1) {
+              this.setState({
+                time: this.state.time - 1,
+                nearLoose: false
+              })
+            } else {
+              this.setState({
+                time: this.state.time - 1
+              })
+            }
+          }
         }
       }, 1000)
     }
@@ -49,7 +71,12 @@ class Game extends React.Component {
 
   getHeader = () => {
     const { time } = this.state
-    if (time === 14 || time === 9 || time === 4) {
+    const { gameDetails } = this.props
+    let text = ''
+    if (gameDetails) {
+      text = gameDetails[0].texto
+    }
+    if (time === 12) {
       this.refs.tick.play()
     }
     let timeNiceMin = Math.floor(time/60)
@@ -67,7 +94,7 @@ class Game extends React.Component {
     if (timeNiceSecs < 0) {
       timeNiceSecs = 0
     }
-    return (
+    const header = (
       <div className='gameHeader'>
         <div className='counterContainer'>
           <img
@@ -140,10 +167,11 @@ class Game extends React.Component {
               'CpEKwIBSUF6GrWQCBUQpQohadfjKR0MWaJpbjSL4Aw0YtZYinihRIA8Es3GTxO4OLgzq/cgAeefqv/M64NuOHutcLZLUWCxApntxWp' +
               'SiNcvUa01J2mSEICTR/pAsm9VwNRUtIowjjRtM8Y+BLHcdV0FmOH/wfLGk9K4N8CWQAAAABJRU5ErkJggg=='}
             />
-            <label className='time'>
+            <label className={'time ' + (this.state.nearLoose ? 'loosing' : '')}>
               {timeNiceMin}:{timeNiceSecs}
             </label>
           </div>
+          <label className='gameObjective'>{text}</label>
           <div className='closeGame' onClick={this.closeGmae}>
             <img src={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKYAAACjCAYAAAAARWXEAAAACXBIWXMAAAsSAAALEgHS3X7' +
               '8AAAJw0lEQVR42u2dPW8byR2Hf7uWLPiwBzKA09wVolNdJ6ZJdxAP+QCmq6SKqXqLMPcFTH0DGghrr/IFTq5SCVjhUl0KU507U4XT' +
@@ -183,6 +211,11 @@ class Game extends React.Component {
           </div>
       </div>
     )
+
+    if (gameDetails) {
+      return header
+    }
+    return null
   }
 
   render = () => {
@@ -196,9 +229,18 @@ class Game extends React.Component {
         gameUI = <Circuitos />
         break
     }
-    let fireworks = null
+    let won = null
+    let loose = null
     if (this.state.isWinner) {
-      fireworks = <div>GANASTE</div>
+      won = (
+        <div className='won' onClick={this.closeGmae}>
+        </div>
+      )
+    } else if (this.state.isLooser) {
+      loose = (
+        <div className='loose' onClick={this.closeGmae}>
+        </div>
+      )
     }
 
     return (
@@ -206,7 +248,8 @@ class Game extends React.Component {
         <audio ref='tick' src='http://pasitoapaso.themonstera.com/tick.mp3' preload='auto' />
         {this.getHeader()}
         {gameUI}
-        {fireworks}
+        {won}
+        {loose}
       </div>
     )
   }
