@@ -4,6 +4,7 @@ import _ from 'underscore'
 import CircuitsCard from '../components/CircuitsCard'
 import CircuitDraggableCard from '../components/CircuitDraggableCard'
 import { win } from '../actions/Game'
+import Loading from '../components/Loading'
 
 class Circuitos extends React.Component {
   constructor (props) {
@@ -150,8 +151,7 @@ class Circuitos extends React.Component {
       )
     } else {
       return (
-        <div className='loading'>
-        </div>
+        <Loading />
       )
     }
   }

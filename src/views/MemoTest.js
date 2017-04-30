@@ -4,6 +4,7 @@ import _ from 'underscore'
 import MemoTestCard from '../components/MemoTestCard'
 import { flip, save } from '../actions/MemoTest'
 import { win } from '../actions/Game'
+import Loading from '../components/Loading'
 
 class MemoTest extends React.Component {
   constructor (props) {
@@ -116,8 +117,7 @@ class MemoTest extends React.Component {
       )
     } else {
       return (
-        <div className='loading'>
-        </div>
+        <Loading />
       )
     }
   }

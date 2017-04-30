@@ -26,6 +26,21 @@ class Dashboard extends React.Component {
     }
   }
 
+  componentDidMount = () => {
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+      const elem = document.body
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen()
+      } else if (elem.msRequestFullscreen) {
+        elem.msRequestFullscreen()
+      } else if (elem.mozRequestFullScreen) {
+        elem.mozRequestFullScreen()
+      } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen()
+      }
+    }
+  }
+
   updateLevel = (username, level) => {
     const { dispatch } = this.props
 
