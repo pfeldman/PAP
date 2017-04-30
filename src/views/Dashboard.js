@@ -86,7 +86,8 @@ class Dashboard extends React.Component {
     let ret = {}
     if (game && area && gameDetails && gameDetails[0].background) {
       ret = {
-        'backgroundImage': 'radial-gradient(circle at 50% 46%, rgba(' + gameDetails[0].background + ', 0.5), rgb(' + gameDetails[0].background + ')'
+        'backgroundImage': 'radial-gradient(circle at 50% 46%, rgba(' +
+          gameDetails[0].background + ', 0.5), rgb(' + gameDetails[0].background + ')'
       }
     }
     return ret
