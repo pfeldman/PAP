@@ -27,6 +27,12 @@ function Circuit (state = {}, action) {
       })
 
       return correct
+    case types.RETRY:
+      let retry = Object.assign({}, state, {
+        corrects: 0
+      })
+
+      return retry
     default:
       let def = Object.assign({}, state, {
         correct: 0

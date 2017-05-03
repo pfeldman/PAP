@@ -18,6 +18,14 @@ function MemoTest (state = {}, action) {
       })
 
       return save
+    case types.MEMOTEST_RESET:
+      let reseted = Object.assign({}, state, {
+        flipped: -1,
+        saved: '',
+        resetedTime: (new Date()).getTime()
+      })
+
+      return reseted
     default:
       state = Object.assign({}, state, {
         flipped: -1,

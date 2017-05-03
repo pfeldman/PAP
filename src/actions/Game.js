@@ -23,6 +23,19 @@ function postGameKeys (game, area, level) {
   })
 }
 
+export function setSound (status) {
+  return {
+    type: types.SOUND,
+    status
+  }
+}
+
+export function retryGame () {
+  return {
+    type: types.RETRY
+  }
+}
+
 export function getGameKeys (game, area, level) {
   return dispatch => {
     postGameKeys(game, area, level).then(

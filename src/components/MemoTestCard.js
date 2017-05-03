@@ -4,12 +4,13 @@ class MemoTestCard extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      flipped: false
+      flipped: false,
+      correct: false
     }
   }
 
   componentDidUpdate = (prevProps) => {
-    const { flipped, correctCards, detail } = this.props
+    const { flipped, correctCards, detail, resetedTime } = this.props
     let cards = correctCards.substr(1, correctCards.length).split(',')
     if (cards.length) {
       for (var i=0; i<cards.length; i++) { cards[i] = +cards[i] }
@@ -22,6 +23,21 @@ class MemoTestCard extends React.Component {
     ) {
       this.setState({
         flipped: false
+      })
+    } else if (flipped === -1 &&
+      this.state.flipped &&
+      prevProps.flipped !== flipped &&
+      cards.indexOf(parseInt(detail.id, 10)) >= 0
+    ) {
+      this.setState({
+        correct: true
+      })
+    }
+
+    if (prevProps.resetedTime !== resetedTime) {
+      this.setState({
+        flipped: false,
+        correct: false
       })
     }
   }
@@ -45,22 +61,31 @@ class MemoTestCard extends React.Component {
       height: height,
       width: width
     }
+    const backStyle = {
+      backgroundColor: detail.secondayColor,
+      height: height,
+      width: width
+    }
     return (
       <div
-        className={'memoTestCard ' + (this.state.flipped ? 'flip' : '')}
+        className={'memoTestCard ' + (this.state.flipped ? 'flip' : '') +
+          (this.state.correct ? ' correct': '')}
         style={style}
         onClick={this.flip}
       >
         <div
           className='back'
-          style={style}
+          style={backStyle}
         >
         </div>
         <div
           className='front'
           style={style}
         >
-          <img src={detail.image} />
+          <img
+            src={detail.image}
+            style={style}
+          />
         </div>
       </div>
     )
@@ -73,7 +98,8 @@ MemoTestCard.propTypes = {
   width: PropTypes.number,
   onFlip: PropTypes.func,
   flipped: PropTypes.number,
-  correctCards: PropTypes.string
+  correctCards: PropTypes.string,
+  resetedTime: PropTypes.number
 }
 
 export default MemoTestCard

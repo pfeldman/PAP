@@ -85,16 +85,17 @@ class Dashboard extends React.Component {
     const { game, area, gameDetails } = this.props
     let ret = {}
     if (game && area && gameDetails && gameDetails[0].background) {
+      let image = 'radial-gradient(circle at 50% 46%, rgba(' +
+        gameDetails[0].background + ', 0.5), rgb(' + gameDetails[0].background + ')'
       ret = {
-        'backgroundImage': 'radial-gradient(circle at 50% 46%, rgba(' +
-          gameDetails[0].background + ', 0.5), rgb(' + gameDetails[0].background + ')'
+        'backgroundImage': image
       }
     }
     return ret
   }
 
   render = () => {
-    const { level } = this.props
+    const { level, game } = this.props
     if (this.state.modalShown) {
       return (
         <div className='loginView'>
@@ -103,10 +104,12 @@ class Dashboard extends React.Component {
       )
     } else {
       return (
-        <div className={'dashboard level' + level} style={this.getStyle()}>
-          {this.dashboardContent}
-          <div className='warning'>
-            Para poder disfrutar mejor del juego, por favor gire su dispositivo
+        <div className={'dashboard level' + level + ' ' + game} style={this.getStyle()}>
+          <div className='background-container'>
+            {this.dashboardContent}
+            <div className='warning'>
+              Para poder disfrutar mejor del juego, por favor gire su dispositivo
+            </div>
           </div>
         </div>
       )

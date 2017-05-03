@@ -13,3 +13,9 @@ export function save (id) {
     id
   }
 }
+
+export function memoTestReset () {
+  return {
+    type: types.MEMOTEST_RESET
+  }
+}

@@ -66,7 +66,7 @@ class CircuitDraggableCard extends React.Component {
         ref={'card' + card.id}
         style={{
           width: width,
-          height: width + (width / 2),
+          height: width / 82 * 100,
           backgroundImage: 'url("' + card.image + '")'
         }}
         id={card.posicion}

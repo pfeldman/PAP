@@ -15,7 +15,11 @@ class Login extends React.Component {
     const { loggedInError } = this.props
 
     if (loggedInError) {
-      return <label className='error'>ERROR</label>
+      return (
+        <label className='error'>
+          El usuario o la contraseña son incorrectos. <br />Por favor intente una vez mas
+        </label>
+      )
     }
     return null
   }

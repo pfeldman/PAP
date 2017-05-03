@@ -17,6 +17,10 @@ class CircuitsCard extends React.Component {
 
       if (parseInt(dropedPosition, 10) === index) {
         if (isCollision && parseInt(dropedPosition, 10) === index) {
+          if (!$(droppedCard).hasClass('correct')) {
+            dispatch(correct())
+            ok()
+          }
           $(droppedCard).addClass('correct')
           let containerTop = $('.availableCards').offset().top
 
@@ -32,9 +36,6 @@ class CircuitsCard extends React.Component {
             marginRight: 0,
             marginLeft: 0
           }, 500)
-
-          ok()
-          dispatch(correct())
         } else {
           fail()
           dispatch(resetCard(droppedCard))
@@ -73,8 +74,8 @@ class CircuitsCard extends React.Component {
         className={'circuitCard'}
         style={{
           width: width,
-          height: width + (width / 2),
-          lineHeight: width + (width / 2) + 'px'
+          height: (width / 82 * 100),
+          lineHeight: (width / 82 * 100) + 'px'
         }}
       >
         {index}

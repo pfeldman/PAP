@@ -1,6 +1,6 @@
 import * as types from '../constants/ActionsTypes'
 
-function Game (state = {}, action) {
+function Game (state = {sound: true}, action) {
   switch (action.type) {
     case types.GAME:
       let game = Object.assign({}, state, {
@@ -27,6 +27,12 @@ function Game (state = {}, action) {
       })
 
       return reset
+    case types.SOUND:
+      let sound = Object.assign({}, state, {
+        sound: action.status
+      })
+
+      return sound
     default:
       return state
   }

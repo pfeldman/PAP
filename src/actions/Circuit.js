@@ -20,3 +20,9 @@ export function correct () {
     type: types.CIRCUIT_CORRECT
   }
 }
+
+export function reTry () {
+  return {
+    type: types.RETRY
+  }
+}

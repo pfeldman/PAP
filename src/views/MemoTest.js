@@ -16,21 +16,25 @@ class MemoTest extends React.Component {
   }
 
   flipped = (details) => {
-    const { dispatch, flippedCard } = this.props
+    const { dispatch, flippedCard, sound } = this.props
     const { okSound, failSound } = this.refs
     if (flippedCard === -1) {
       dispatch(flip(details.id))
     } else {
       if (parseInt(details.id, 10) === flippedCard) {
         dispatch(save(flippedCard))
-        okSound.pause()
-        okSound.currentTime = 0
-        okSound.play()
+        if (sound) {
+          okSound.pause()
+          okSound.currentTime = 0
+          okSound.play()
+        }
       } else {
         dispatch(flip(-1))
-        failSound.pause()
-        failSound.currentTime = 0
-        failSound.play()
+        if (sound) {
+          failSound.pause()
+          failSound.currentTime = 0
+          failSound.play()
+        }
       }
     }
   }
@@ -63,7 +67,7 @@ class MemoTest extends React.Component {
   }
 
   render = () => {
-    const { gameDetails, flippedCard, correctCards } = this.props
+    const { gameDetails, flippedCard, correctCards, resetedTime } = this.props
     if (gameDetails && this.state.options.length) {
       const columnsLength = gameDetails.length * 2 / 3
       const rowsLength = 3
@@ -79,7 +83,7 @@ class MemoTest extends React.Component {
       const windowSize = window.innerHeight * 67 / 100
       const margin = 8
       const height = windowSize / rowsLength - margin
-      const width = (height / 3) * 2
+      const width = height * 85 / 100
       return (
         <div className='memoTestGame'>
           <audio ref='okSound' src='http://pasitoapaso.themonstera.com/ok.mp3' preload='auto' />
@@ -107,6 +111,7 @@ class MemoTest extends React.Component {
                       onFlip={this.flipped.bind(this, detail)}
                       flipped={flippedCard}
                       correctCards={correctCards}
+                      resetedTime={resetedTime}
                     />
                   )
                 })}
@@ -127,14 +132,18 @@ MemoTest.propTypes = {
   dispatch: PropTypes.func,
   gameDetails: PropTypes.array,
   flippedCard: PropTypes.number,
-  correctCards: PropTypes.string
+  correctCards: PropTypes.string,
+  sound: PropTypes.bool,
+  resetedTime: PropTypes.number
 }
 
 function mapStateToProps (state) {
   return {
     gameDetails: state.Game.gameDetails,
     flippedCard: state.MemoTest.flipped,
-    correctCards: state.MemoTest.saved
+    correctCards: state.MemoTest.saved,
+    resetedTime: state.MemoTest.resetedTime,
+    sound: state.Game.sound
   }
 }
 
