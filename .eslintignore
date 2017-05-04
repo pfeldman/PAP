@@ -9,3 +9,4 @@ src/utils/EasePack.js
 src/utils/ThrowPropsPlugin.js
 src/TweenLite.js
 src/components/CircuitDraggableCard.js
+src/components//AgrupandoDraggableCard.js

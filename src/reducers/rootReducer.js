@@ -6,6 +6,8 @@ import Game from './Game'
 import Area from './Area'
 import MemoTest from './MemoTest'
 import Circuit from './Circuit'
+import Alert from './Alert'
+import Agrupando from './Agrupando'
 
 export default combineReducers({
   SessionService,
@@ -14,5 +16,7 @@ export default combineReducers({
   Game,
   Area,
   MemoTest,
-  Circuit
+  Circuit,
+  Alert,
+  Agrupando
 })

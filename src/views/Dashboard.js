@@ -8,6 +8,7 @@ import Footer from '../components/Footer'
 import GameSelector from './GameSelector'
 import AreaSelector from './AreaSelector'
 import Game from './Game'
+import Alert from '../components/Alert'
 
 class Dashboard extends React.Component {
   constructor (props) {
@@ -107,6 +108,7 @@ class Dashboard extends React.Component {
         <div className={'dashboard level' + level + ' ' + game} style={this.getStyle()}>
           <div className='background-container'>
             {this.dashboardContent}
+            <Alert />
             <div className='warning'>
               Para poder disfrutar mejor del juego, por favor gire su dispositivo
             </div>

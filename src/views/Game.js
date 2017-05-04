@@ -2,12 +2,15 @@ import React, {PropTypes} from 'react'
 import { connect } from 'react-redux'
 import { getGameKeys } from '../actions/Game'
 import MemoTest from './MemoTest'
+import Agrupando from './Agrupando'
 import Circuitos from './Circuitos'
 import { reTry } from '../actions/Circuit'
 import { memoTestReset } from '../actions/MemoTest'
+import { agrupandoReset } from '../actions/Agrupando'
 import $ from 'jquery'
 import TweenLite from 'gsap/TweenLite'
 import { Back } from '../utils/EasePack'
+import { alert } from '../actions/Alert'
 
 class Game extends React.Component {
   constructor (props) {
@@ -90,8 +93,13 @@ class Game extends React.Component {
     }
   }
 
-  closeGmae = () => {
+  confirmedClose = () => {
     location.reload()
+  }
+
+  closeGame = () => {
+    const { dispatch } = this.props
+    dispatch(alert('Estas seguro que deseas abandonar el juego?', this.confirmedClose, 'ABANDONAR', 'SEGUIR JUGANDO'))
   }
 
   getHeader = () => {
@@ -171,7 +179,7 @@ class Game extends React.Component {
           </label>
           </div>
           <label className='gameObjective'>{text}</label>
-          <div className='closeGame' onClick={this.closeGmae}>
+          <div className='closeGame' onClick={this.closeGame}>
             <svg
               className='closeGameIcon'
               xmlns='http://www.w3.org/2000/svg'
@@ -240,6 +248,17 @@ class Game extends React.Component {
 
     $('.correct').removeClass('correct')
 
+    for (let i = 0; i < $('.circuitDraggableCard.hidden').length; i++) {
+      TweenLite.to($('.circuitDraggableCard.hidden')[i], 0.3, {
+        x: 0,
+        y: 0,
+        delay: 0.15,
+        ease: Back.easeOut
+      })
+    }
+
+    $('.circuitDraggableCard.hidden').removeClass('hidden')
+
     this.setState({
       isWinner: false,
       time: time,
@@ -249,6 +268,7 @@ class Game extends React.Component {
 
     dispatch(reTry())
     dispatch(memoTestReset())
+    dispatch(agrupandoReset())
   }
 
   render = () => {
@@ -261,6 +281,9 @@ class Game extends React.Component {
         break
       case 'circuitos':
         gameUI = <Circuitos />
+        break
+      case 'agrupando':
+        gameUI = <Agrupando />
         break
     }
     let won = null
@@ -313,7 +336,7 @@ class Game extends React.Component {
             </svg>
             <h3>¡GANASTE!</h3>
             <span className='stadistics'>Resolviste el juego en {levels[level - 1].time - time} segundos</span>
-            <button className='exit' onClick={this.closeGmae}>Salir</button>
+            <button className='exit' onClick={this.closeGame}>Salir</button>
             <button className='retry' onClick={this.retry}>Jugar de Nuevo</button>
           </div>
         </div>
@@ -394,7 +417,7 @@ class Game extends React.Component {
               </g>
             </svg>
             <h3>SE HA AGOTADO TU TIEMPO</h3>
-            <button className='exit' onClick={this.closeGmae}>Salir</button>
+            <button className='exit' onClick={this.closeGame}>Salir</button>
             <button className='retry' onClick={this.retry}>Jugar de Nuevo</button>
           </div>
         </div>
