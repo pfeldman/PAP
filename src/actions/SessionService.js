@@ -43,6 +43,26 @@ function loginAttempt (username, password) {
   })
 }
 
+function gmaeAreas (game, level) {
+  return servicePost('getGameAreas', {
+    game,
+    level
+  })
+}
+
+function areas (areas) {
+  return {
+    type: types.GET_AREAS,
+    areas
+  }
+}
+
+export function selectingGame () {
+  return {
+    type: types.SELECTING_GAME
+  }
+}
+
 export function login (username, password) {
   return dispatch => {
     loginAttempt(username, password).then(
@@ -55,6 +75,14 @@ export function updateLevel (username, level) {
   return dispatch => {
     postUpdateLevel(username, level).then(
       response => dispatch(levelUpdatedSuccessful(level))
+    )
+  }
+}
+
+export function getGameAreas (game, level) {
+  return dispatch => {
+    gmaeAreas(game, level).then(
+      response => dispatch(areas(response))
     )
   }
 }

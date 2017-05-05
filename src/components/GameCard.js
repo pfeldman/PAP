@@ -1,12 +1,20 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { selectGame } from '../actions/Game'
+import { getGameAreas, selectingGame } from '../actions/SessionService'
 
 class GameCard extends React.Component {
   selectGame = () => {
-    const { type, dispatch } = this.props
+    const { type, dispatch, level } = this.props
+    dispatch(selectingGame())
+    dispatch(getGameAreas(type, level))
+  }
 
-    dispatch(selectGame(type))
+  componentDidUpdate = (prevProps) => {
+    const { areasLoaded, type, dispatch } = this.props
+    if (prevProps.areasLoaded !== areasLoaded) {
+      dispatch(selectGame(type))
+    }
   }
 
   render = () => {
@@ -42,7 +50,15 @@ class GameCard extends React.Component {
 
 GameCard.propTypes = {
   dispatch: PropTypes.func,
-  type: PropTypes.string
+  type: PropTypes.string,
+  level: PropTypes.number,
+  areasLoaded: PropTypes.number
 }
 
-export default connect()(GameCard)
+function mapStateToProps (state) {
+  return {
+    areasLoaded: state.SessionService.timestamp
+  }
+}
+
+export default connect(mapStateToProps)(GameCard)

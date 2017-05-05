@@ -18,6 +18,7 @@ class AreaSelector extends React.Component {
   }
 
   render = () => {
+    const { areas } = this.props
     return (
       <div className='overlay'>
         <div className='modalClosable'>
@@ -42,19 +43,23 @@ class AreaSelector extends React.Component {
             options={[
               {
                 label: 'Lengua',
-                value: 'lengua'
+                value: 'lengua',
+                disabled: !(areas.indexOf('lengua') >= 0)
               },
               {
                 label: 'Matemática',
-                value: 'matematica'
+                value: 'matematica',
+                disabled: !(areas.indexOf('matematica') >= 0)
               },
               {
                 label: 'Naturales',
-                value: 'naturales'
+                value: 'naturales',
+                disabled: !(areas.indexOf('naturales') >= 0)
               },
               {
                 label: 'Sociales',
-                'value': 'sociales'
+                'value': 'sociales',
+                disabled: !(areas.indexOf('sociales') >= 0)
               }
             ]}
             onChange={this.selectArea}
@@ -66,7 +71,14 @@ class AreaSelector extends React.Component {
 }
 
 AreaSelector.propTypes = {
-  dispatch: PropTypes.func
+  dispatch: PropTypes.func,
+  areas: PropTypes.array
 }
 
-export default connect()(AreaSelector)
+function mapStateToProps (state) {
+  return {
+    areas: state.SessionService.areas
+  }
+}
+
+export default connect(mapStateToProps)(AreaSelector)

@@ -32,12 +32,29 @@ function SessionService (state = {}, action) {
       })
 
       return notLoggedIn
+    case types.GET_AREAS:
+      let stringAreas = []
+      action.areas.map(area => {
+        stringAreas.push(area.area)
+      })
+      let areas = Object.assign({}, state, {
+        areas: stringAreas,
+        timestamp: (new Date()).getTime()
+      })
+
+      return areas
     case types.LEVEL_UPDATED:
       let levelUpdated = Object.assign({}, state, {
         level: parseInt(action.level, 10)
       })
 
       return levelUpdated
+    case types.SELECTING_GAME:
+      let selectingGame = Object.assign({}, state, {
+        selectingGame: true
+      })
+
+      return selectingGame
     default:
       if (localStorage.getItem('loggedIn')) {
         state = Object.assign({}, state, {

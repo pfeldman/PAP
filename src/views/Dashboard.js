@@ -70,14 +70,14 @@ class Dashboard extends React.Component {
   }
 
   get dashboardContent () {
-    const { game, area } = this.props
+    const { game, area, level } = this.props
     if (game && area) {
       return <Game />
     } else if (game) {
       return (
         <div>
           <Footer />
-          <GameSelector />
+          <GameSelector level={level} />
           <AreaSelector />
         </div>
       )
@@ -85,7 +85,7 @@ class Dashboard extends React.Component {
       return (
         <div>
           <Footer />
-          <GameSelector />
+          <GameSelector level={level} />
         </div>
       )
     }
@@ -112,6 +112,15 @@ class Dashboard extends React.Component {
     }
   }
 
+  loadingGame = () => {
+    const { selectingGame, areasLoaded } = this.props
+
+    if (selectingGame && !areasLoaded) {
+      return <div className='overlay loadingGame'></div>
+    }
+    return null
+  }
+
   render = () => {
     const { level, game } = this.props
     if (this.state.modalShown) {
@@ -127,6 +136,7 @@ class Dashboard extends React.Component {
           style={this.getStyle()}
           onClick={this.parentClick}
         >
+          {this.loadingGame()}
           <audio ref='dashboardAudio' src='http://pasitoapaso.themonstera.com/choosingGame.mp3' preload='auto' />
           <audio ref='click' src='http://pasitoapaso.themonstera.com/click.mp3' preload='auto' />
           <div className='background-container'>
@@ -151,7 +161,9 @@ Dashboard.propTypes = {
   game: PropTypes.string,
   area: PropTypes.string,
   gameDetails: PropTypes.array,
-  sound: PropTypes.bool
+  sound: PropTypes.bool,
+  selectingGame: PropTypes.bool,
+  areasLoaded: PropTypes.number
 }
 
 function mapStateToProps (state) {
@@ -163,7 +175,9 @@ function mapStateToProps (state) {
     game: state.Game.game,
     area: state.Area.area,
     gameDetails: state.Game.gameDetails,
-    sound: state.Game.sound
+    sound: state.Game.sound,
+    selectingGame: state.SessionService.selectingGame,
+    areasLoaded: state.SessionService.timestamp
   }
 }
 

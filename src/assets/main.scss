@@ -17,6 +17,12 @@
   font-family: 'Mark';
 }
 
+.loadingGame {
+  background-image: url('http://pasitoapaso.themonstera.com/ajax-loader.gif');
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
 .correctAgrupando {
   border-radius: 35px;
   padding: 8px;
@@ -294,6 +300,15 @@
 
   &:last-child {
     border-bottom: 0 none !important;
+  }
+
+  &.disabled {
+    color: #CCC;
+    cursor: auto !important;
+
+    &:hover {
+      background-color: transparent;
+    }
   }
 
   &:hover{
@@ -684,8 +699,9 @@ h1 {
 }
 
 .footer {
-  width: 80%;
-  margin-left: 10%;
+  width: 94%;
+  margin-left: 3%;
+  padding-top: 1%;
   overflow: hidden;
 
   .endSession {
