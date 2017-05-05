@@ -5,15 +5,20 @@ import { closeAlert } from '../actions/Alert'
 class Alert extends React.Component {
   closeAlert = () => {
     const { dispatch } = this.props
-
     dispatch(closeAlert())
   }
 
+  action = () => {
+    const { action } = this.props
+    action()
+  }
+
   render = () => {
-    const { timestamp, message, closeText, okText, action } = this.props
+    const { timestamp, message, closeText, okText } = this.props
     if (timestamp) {
       return (
         <div className='overlay'>
+          <audio ref='click' src='http://pasitoapaso.themonstera.com/click.mp3' preload='auto' />
           <div className='alert'>
             <svg
               width='24'
@@ -38,7 +43,7 @@ class Alert extends React.Component {
             {message}
             <div className='buttons'>
               <button className='close' onClick={this.closeAlert}>{closeText}</button>
-              <button className='okButton' onClick={action}>{okText}</button>
+              <button className='okButton' onClick={this.action}>{okText}</button>
             </div>
           </div>
         </div>
@@ -54,7 +59,8 @@ Alert.propTypes = {
   timestamp: PropTypes.number,
   action: PropTypes.func,
   closeText: PropTypes.string,
-  okText: PropTypes.string
+  okText: PropTypes.string,
+  sound: PropTypes.bool
 }
 
 function mapStateToProps (state) {
@@ -63,7 +69,8 @@ function mapStateToProps (state) {
     timestamp: state.Alert.new,
     closeText: state.Alert.buttonCloseText,
     okText: state.Alert.buttonOKText,
-    action: state.Alert.action
+    action: state.Alert.action,
+    sound: state.Game.sound
   }
 }
 

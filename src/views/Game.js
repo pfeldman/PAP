@@ -37,7 +37,7 @@ class Game extends React.Component {
   }
 
   componentDidUpdate = (prevProps) => {
-    const { newWin, gameDetails } = this.props
+    const { newWin, gameDetails, sound } = this.props
     if (prevProps.newWin !== newWin) {
       this.setState({
         isWinner: true
@@ -52,6 +52,9 @@ class Game extends React.Component {
         })
       }, 1000)
     } else if (this.state.gameTime === 0 && !this.state.started) {
+      if (sound) {
+        this.refs.playing.play()
+      }
       window.setInterval(() => {
         if (gameDetails && !this.state.isWinner && !this.state.isLooser) {
           if (this.state.time === 1) {
@@ -86,6 +89,9 @@ class Game extends React.Component {
 
     if (gameDetails !== prevProps.gameDetails && gameDetails) {
       if (this.state.gameTime === -1) {
+        if (sound) {
+          this.refs.gameStart.play()
+        }
         this.setState({
           gameTime: 4
         })
@@ -110,6 +116,7 @@ class Game extends React.Component {
       text = gameDetails[0].texto
     }
     if (time === 12 && sound) {
+      this.refs.playing.volume = 0.4
       this.refs.tick.play()
     }
     let timeNiceMin = Math.floor(time/60)
@@ -290,6 +297,7 @@ class Game extends React.Component {
     let loose = null
     if (this.state.isWinner) {
       if (sound) {
+        this.refs.playing.pause()
         this.refs.winGame.play()
       }
       won = (
@@ -336,13 +344,14 @@ class Game extends React.Component {
             </svg>
             <h3>¡GANASTE!</h3>
             <span className='stadistics'>Resolviste el juego en {levels[level - 1].time - time} segundos</span>
-            <button className='exit' onClick={this.closeGame}>Salir</button>
+            <button className='exit' onClick={this.confirmedClose}>Salir</button>
             <button className='retry' onClick={this.retry}>Jugar de Nuevo</button>
           </div>
         </div>
       )
     } else if (this.state.isLooser) {
       if (sound) {
+        this.refs.playing.pause()
         this.refs.looseGame.play()
       }
       loose = (
@@ -427,8 +436,10 @@ class Game extends React.Component {
     return (
       <div>
         <audio ref='tick' src='http://pasitoapaso.themonstera.com/tick.mp3' preload='auto' />
+        <audio ref='gameStart' src='http://pasitoapaso.themonstera.com/start.mp3' preload='auto' />
         <audio ref='winGame' src='http://pasitoapaso.themonstera.com/wingame.mp3' preload='auto' />
         <audio ref='looseGame' src='http://pasitoapaso.themonstera.com/loosegame.mp3' preload='auto' />
+        <audio ref='playing' src='http://pasitoapaso.themonstera.com/gameSound.mp3' preload='auto' />
         {this.getHeader()}
         {gameUI}
         {won}

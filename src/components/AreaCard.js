@@ -14,7 +14,7 @@ class AreaCard extends React.Component {
 
     return (
       <div className={'areaCard ' + type} onClick={this.selectArea}>
-
+        
       </div>
     )
   }

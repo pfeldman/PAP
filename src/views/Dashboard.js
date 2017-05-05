@@ -18,12 +18,21 @@ class Dashboard extends React.Component {
       modalShown: false
     }
   }
+
   componentDidUpdate = (prevProps) => {
+    const { game, sound } = this.props
+    if (game || !sound) {
+      this.refs.dashboardAudio.pause()
+    }
+    if (!game && (prevProps.sound !== sound && sound)) {
+      this.refs.dashboardAudio.play()
+    }
     this.showLevelModal(false, prevProps)
   }
 
   componentDidMount = () => {
     this.showLevelModal(true)
+    this.refs.dashboardAudio.play()
   }
 
   showLevelModal = (force, prevProps) => {
@@ -95,6 +104,14 @@ class Dashboard extends React.Component {
     return ret
   }
 
+  parentClick = () => {
+    const { sound } = this.props
+
+    if (sound) {
+      this.refs.click.play()
+    }
+  }
+
   render = () => {
     const { level, game } = this.props
     if (this.state.modalShown) {
@@ -105,7 +122,13 @@ class Dashboard extends React.Component {
       )
     } else {
       return (
-        <div className={'dashboard level' + level + ' ' + game} style={this.getStyle()}>
+        <div
+          className={'dashboard level' + level + ' ' + game}
+          style={this.getStyle()}
+          onClick={this.parentClick}
+        >
+          <audio ref='dashboardAudio' src='http://pasitoapaso.themonstera.com/choosingGame.mp3' preload='auto' />
+          <audio ref='click' src='http://pasitoapaso.themonstera.com/click.mp3' preload='auto' />
           <div className='background-container'>
             {this.dashboardContent}
             <Alert />
@@ -127,7 +150,8 @@ Dashboard.propTypes = {
   username: PropTypes.string,
   game: PropTypes.string,
   area: PropTypes.string,
-  gameDetails: PropTypes.array
+  gameDetails: PropTypes.array,
+  sound: PropTypes.bool
 }
 
 function mapStateToProps (state) {
@@ -138,7 +162,8 @@ function mapStateToProps (state) {
     username: state.SessionService.username,
     game: state.Game.game,
     area: state.Area.area,
-    gameDetails: state.Game.gameDetails
+    gameDetails: state.Game.gameDetails,
+    sound: state.Game.sound
   }
 }
 
