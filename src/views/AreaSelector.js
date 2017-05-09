@@ -18,7 +18,13 @@ class AreaSelector extends React.Component {
   }
 
   render = () => {
-    const { areas } = this.props
+    const { availableAreas, game, level } = this.props
+    let allDisabled = false
+    const data = availableAreas[game][level]
+    if (!data) {
+      allDisabled = true
+    }
+    
     return (
       <div className='overlay'>
         <div className='modalClosable'>
@@ -42,24 +48,24 @@ class AreaSelector extends React.Component {
           <LevelSelector
             options={[
               {
-                label: 'Lengua',
+                label: 'Prácticas de lenguaje',
                 value: 'lengua',
-                disabled: !(areas.indexOf('lengua') >= 0)
+                disabled: allDisabled || data.indexOf('lengua') === -1
               },
               {
                 label: 'Matemática',
                 value: 'matematica',
-                disabled: !(areas.indexOf('matematica') >= 0)
+                disabled: allDisabled || data.indexOf('matematica') === -1
               },
               {
-                label: 'Naturales',
+                label: 'Ciencias Naturales',
                 value: 'naturales',
-                disabled: !(areas.indexOf('naturales') >= 0)
+                disabled: allDisabled || data.indexOf('naturales') === -1
               },
               {
-                label: 'Sociales',
+                label: 'Ciencias Sociales',
                 'value': 'sociales',
-                disabled: !(areas.indexOf('sociales') >= 0)
+                disabled: allDisabled || data.indexOf('sociales') === -1
               }
             ]}
             onChange={this.selectArea}
@@ -72,12 +78,18 @@ class AreaSelector extends React.Component {
 
 AreaSelector.propTypes = {
   dispatch: PropTypes.func,
-  areas: PropTypes.array
+  areas: PropTypes.array,
+  availableAreas: PropTypes.object,
+  level: PropTypes.number,
+  game: PropTypes.string
 }
 
 function mapStateToProps (state) {
   return {
-    areas: state.SessionService.areas
+    areas: state.SessionService.areas,
+    availableAreas: state.SessionService.availableAreas,
+    level: state.SessionService.level,
+    game: state.Game.game
   }
 }
 

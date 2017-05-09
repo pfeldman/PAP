@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Modal from '../components/Modal'
 import { modal } from '../actions/Modal'
 import LevelSelector from '../components/LevelSelector'
-import { updateLevel } from '../actions/SessionService'
+import { updateLevel, getGameAvailableAreas } from '../actions/SessionService'
 import Footer from '../components/Footer'
 import GameSelector from './GameSelector'
 import AreaSelector from './AreaSelector'
@@ -31,8 +31,10 @@ class Dashboard extends React.Component {
   }
 
   componentDidMount = () => {
+    const { dispatch } = this.props
     this.showLevelModal(true)
     this.refs.dashboardAudio.play()
+    dispatch(getGameAvailableAreas())
   }
 
   showLevelModal = (force, prevProps) => {
@@ -44,7 +46,7 @@ class Dashboard extends React.Component {
       dispatch(modal(true, (
         <div className='levelSelector'>
           <b>Bienvenido/a {name}!</b><br />
-          Parece que es la primera vez que nos vemos! Elegí tu grado para empezar:
+          Parece que es la primera vez que nos vemos! <b>Elegí</b> tu grado para empezar:
           <LevelSelector
             options={levels}
             onChange={this.onSelect}
@@ -112,15 +114,6 @@ class Dashboard extends React.Component {
     }
   }
 
-  loadingGame = () => {
-    const { selectingGame, areasLoaded } = this.props
-
-    if (selectingGame && !areasLoaded) {
-      return <div className='overlay loadingGame'></div>
-    }
-    return null
-  }
-
   render = () => {
     const { level, game } = this.props
     if (this.state.modalShown) {
@@ -136,7 +129,6 @@ class Dashboard extends React.Component {
           style={this.getStyle()}
           onClick={this.parentClick}
         >
-          {this.loadingGame()}
           <audio ref='dashboardAudio' src='http://pasitoapaso.themonstera.com/choosingGame.mp3' preload='auto' />
           <audio ref='click' src='http://pasitoapaso.themonstera.com/click.mp3' preload='auto' />
           <div className='background-container'>

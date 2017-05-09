@@ -64,10 +64,6 @@ class Footer extends React.Component {
       return (
         <div className='footer'>
           <div className='pull-left levelSelectorFooter'>
-            <label className='level'>
-              Dificultad
-              {levels[level - 1].label}
-            </label>
             <Dropdown
               options={levels}
               onChange={this.onSelect}

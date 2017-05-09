@@ -43,11 +43,22 @@ function loginAttempt (username, password) {
   })
 }
 
+function gameAvailableAreas () {
+  return servicePost('getGameAvailableAreas', {})
+}
+
 function gmaeAreas (game, level) {
   return servicePost('getGameAreas', {
     game,
     level
   })
+}
+
+function availableAreas (response) {
+  return {
+    type: types.AVAILABLE_AREAS,
+    payload: response
+  }
 }
 
 function areas (areas) {
@@ -95,5 +106,13 @@ export function logout () {
 
   return {
     type: types.LOGOUT
+  }
+}
+
+export function getGameAvailableAreas () {
+  return dispatch => {
+    gameAvailableAreas().then(
+      response => dispatch(availableAreas(response))
+    )
   }
 }

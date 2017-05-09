@@ -437,7 +437,7 @@
   width: 100%;
 
   &.circuitos {
-    background-size: 200%;
+    background-size: 100%;
     background-position: 50%;
     background-repeat: repeat-x;
     .background-container {
@@ -518,11 +518,14 @@
   width: 100%;
   margin-top: 20px;
   float: left;
-  background-color: rgba(0,0,0, 0.1);
   padding-top: 20px;
   padding-bottom: 20px;
   position: absolute;
   bottom: 0;
+}
+
+form h2 {
+  font-size: 17px;
 }
 
 .moved {

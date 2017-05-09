@@ -39,6 +39,7 @@ class Login extends React.Component {
       return (
         <div className='overlay' ref='overlay' onClick={(e) => this.showModal(e, false)}>
           <form onSubmit={this.login} autoComplete='new-password'>
+            <h2>Iniciar Sesión</h2>
             <div className='form-group'>
               <label>Usuario:</label>
               <input autoComplete='new-password' ref='username' />

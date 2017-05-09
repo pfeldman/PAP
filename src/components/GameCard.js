@@ -1,20 +1,11 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { selectGame } from '../actions/Game'
-import { getGameAreas, selectingGame } from '../actions/SessionService'
 
 class GameCard extends React.Component {
   selectGame = () => {
-    const { type, dispatch, level } = this.props
-    dispatch(selectingGame())
-    dispatch(getGameAreas(type, level))
-  }
-
-  componentDidUpdate = (prevProps) => {
-    const { areasLoaded, type, dispatch } = this.props
-    if (prevProps.areasLoaded !== areasLoaded) {
-      dispatch(selectGame(type))
-    }
+    const { type, dispatch } = this.props
+    dispatch(selectGame(type))
   }
 
   render = () => {
@@ -23,13 +14,13 @@ class GameCard extends React.Component {
     let text = ''
     if (type === 'memoTest') {
       title = 'Memotest'
-      text = 'Consiste encontrar los pares de cartas que contienen los mismos dibujos'
+      text = 'El juego consiste en encontrar las cartas que son iguales.'
     } else if (type === 'agrupando') {
-      title = 'Agrupando'
-      text = 'Consiste encontrar los pares de cartas que contienen los mismos dibujos'
+      title = 'Grupitos'
+      text = 'El juego consiste en armar grupos de cartas.'
     } else if (type === 'circuitos') {
       title = 'Circuitos'
-      text = 'Consiste encontrar los pares de cartas que contienen los mismos dibujos'
+      text = 'El juego consiste en poner las cartas en orden.'
     }
     return (
       <div className='col-md-6'>

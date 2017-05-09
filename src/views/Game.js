@@ -105,7 +105,9 @@ class Game extends React.Component {
 
   closeGame = () => {
     const { dispatch } = this.props
-    dispatch(alert('Estas seguro que deseas abandonar el juego?', this.confirmedClose, 'ABANDONAR', 'SEGUIR JUGANDO'))
+    dispatch(
+      alert('¿Estás seguro que deseas abandonar el juego?', this.confirmedClose, 'DEJAR DE JUGAR', 'SEGUIR JUGANDO')
+    )
   }
 
   getHeader = () => {
@@ -425,7 +427,7 @@ class Game extends React.Component {
                 </g>
               </g>
             </svg>
-            <h3>SE HA AGOTADO TU TIEMPO</h3>
+            <h3>EL TIEMPO SE TERMINÓ</h3>
             <button className='exit' onClick={this.closeGame}>Salir</button>
             <button className='retry' onClick={this.retry}>Jugar de Nuevo</button>
           </div>
