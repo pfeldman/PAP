@@ -24,7 +24,7 @@ class AreaSelector extends React.Component {
     if (!data) {
       allDisabled = true
     }
-    
+
     return (
       <div className='overlay'>
         <div className='modalClosable'>

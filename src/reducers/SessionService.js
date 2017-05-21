@@ -61,6 +61,12 @@ function SessionService (state = {}, action) {
       })
 
       return availableAreas
+    case types.GAME_DETAILS:
+      let gameDetails = Object.assign({}, state, {
+        allGameDetails: action.payload
+      })
+
+      return gameDetails
     default:
       if (localStorage.getItem('loggedIn')) {
         state = Object.assign({}, state, {

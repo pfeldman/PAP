@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Modal from '../components/Modal'
 import { modal } from '../actions/Modal'
 import LevelSelector from '../components/LevelSelector'
-import { updateLevel, getGameAvailableAreas } from '../actions/SessionService'
+import { updateLevel, getGameAvailableAreas, getAllGameDetails } from '../actions/SessionService'
 import Footer from '../components/Footer'
 import GameSelector from './GameSelector'
 import AreaSelector from './AreaSelector'
@@ -35,6 +35,7 @@ class Dashboard extends React.Component {
     this.showLevelModal(true)
     this.refs.dashboardAudio.play()
     dispatch(getGameAvailableAreas())
+    dispatch(getAllGameDetails())
   }
 
   showLevelModal = (force, prevProps) => {

@@ -239,9 +239,28 @@
 
 .gameObjective {
   font-size: 22px;
-  margin-top: 60px;
+  margin-top: 30px;
   float: left;
   margin-left: 20px;
+  font-weight: 500 !important;
+  width: 60%;
+  border-radius: 100px;
+  background-color: rgba(0, 0, 0, 0.12);
+  color: white;
+  padding-left: 87px;
+  padding-right: 87px;
+  padding-top: 26px;
+  padding-bottom: 26px;
+  border: solid 0.5px #000000;
+  line-height: 16px;
+
+  label {
+    font-size: 15px;
+    line-height: 16px !important;
+    margin-top: 13px;
+    display: block;
+    font-weight: 300 !important;
+  }
 }
 
 .counterContainer {
@@ -936,6 +955,71 @@ h1 {
 }
 
 @media only screen and (max-width: 1023px) {
+  .gameCard .col-md-5 {
+    height: 132px !important;
+    width: 31%;
+    float: left;
+  }
+
+  .loose .popup svg, .won .popup svg {
+    top: -130px;
+    left: 168px;
+  }
+
+  .circuitCard {
+    border-radius: 14px;
+  }
+
+  .memoTestGame .memoTestCard .front img {
+    border-radius: 11px;
+  }
+
+  .space {
+    border-radius: 14px;
+  }
+
+  .circuitDraggableCard {
+    border-radius: 14px;
+  }
+
+  .gameCounter {
+    line-height: 140%;
+  }
+
+  .counterContainer svg {
+    height: 73px;
+    margin-top: 11px;
+  }
+
+  .gameObjective {
+    display: none;
+  }
+
+  .modalClosable {
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 100%;
+    border-radius: 0;
+    overflow-y: scroll;
+    height: 100vh;
+  }
+
+  .rightInfo p {
+    font-size: 0.07em;
+  }
+
+  .cardContainer {
+    height: 70%;
+    margin-top: 0;
+  }
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: .13em;
+  }
+
   .closeGame {
     img {
       width: 90px;
@@ -952,8 +1036,20 @@ h1 {
 
     .time {
       font-size: 29px;
-      margin-left: -81px;
+      margin-left: -121px;
+      top: -24px;
     }
+  }
+
+  .memoTestGame .memoTestCard .back {
+    border: 8px solid #FFF;
+  }
+
+  .closeGameIcon {
+    position: relative;
+    right: -46px;
+    top: -11px;
+    height: 90px;
   }
 
   .circuitCard {
@@ -961,8 +1057,8 @@ h1 {
   }
 
   .gameCard {
-    width: 0.78em;
-    height: 0.7em;
+    width: 100%;
+    height: 132px;
   }
 
   .footer {

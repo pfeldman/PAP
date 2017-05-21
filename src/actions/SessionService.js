@@ -47,11 +47,22 @@ function gameAvailableAreas () {
   return servicePost('getGameAvailableAreas', {})
 }
 
+function allGameDetails () {
+  return servicePost('getAllGameDetails', {})
+}
+
 function gmaeAreas (game, level) {
   return servicePost('getGameAreas', {
     game,
     level
   })
+}
+
+function gameDetails (response) {
+  return {
+    type: types.GAME_DETAILS,
+    payload: response
+  }
 }
 
 function availableAreas (response) {
@@ -113,6 +124,14 @@ export function getGameAvailableAreas () {
   return dispatch => {
     gameAvailableAreas().then(
       response => dispatch(availableAreas(response))
+    )
+  }
+}
+
+export function getAllGameDetails () {
+  return dispatch => {
+    allGameDetails().then(
+      response => dispatch(gameDetails(response))
     )
   }
 }
