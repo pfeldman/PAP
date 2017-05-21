@@ -377,7 +377,7 @@ class Agrupando extends React.Component {
               <div
                 className='agrupandoCards'
                 style={{
-                  width: ((windowSize / 6) + (windowSize * 2 / 100)) * gameDetails.length,
+                  width: (((windowSize / 6) + (windowSize * 2 / 100)) * gameDetails.length) + 80,
                   left: left
                 }}
               >

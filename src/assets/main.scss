@@ -525,6 +525,14 @@
   }
 }
 
+.agrupandoCard {
+  height: 126px !important;
+}
+
+.agrupandoCard .content {
+  height: 126px !important;
+}
+
 .circuitosContainer {
   margin-top: 20px;
 
@@ -689,7 +697,7 @@ h2 {
   10%, 90% {
     transform: rotate3d(1, 2, -1, -1deg);
   }
-  
+
   20%, 80% {
     transform: rotate3d(1, 2, -1, 2deg);
   }
@@ -728,7 +736,7 @@ h1 {
 
   .endSession {
     cursor: pointer;
-    
+
     label {
       float: left;
       color: #EA6272;
@@ -1156,47 +1164,47 @@ $delay: 75ms;
 
   svg {
     position: absolute;
-    
+
     ellipse {
       transform-origin: center;
     }
-      
+
     &:nth-of-type(1) ellipse {
       @include jelly(1, 0);
     }
-    
+
     &:nth-of-type(2) ellipse {
       @include jelly(2, 1);
     }
-    
+
     &:nth-of-type(3) ellipse {
       @include jelly(3, 2)
     }
-    
+
     &:nth-of-type(4) ellipse {
       @include jelly(4, 3)
     }
-    
+
     &:nth-of-type(5) ellipse {
       @include jelly(5, 4)
     }
-    
+
     &:nth-of-type(6) ellipse {
       @include floor(0)
     }
-    
+
     &:nth-of-type(7) ellipse {
      @include floor(1)
     }
-    
+
     &:nth-of-type(8) ellipse {
       @include floor(2)
     }
-    
+
     &:nth-of-type(9) ellipse {
       @include floor(3)
     }
-    
+
     &:nth-of-type(10) ellipse {
       @include floor(4)
     }
