@@ -58,6 +58,12 @@ function Game (state = {sound: true}, action) {
       })
 
       return imageUpdated
+    case types.IMAGE_DELETED:
+      let imageDeleted = Object.assign({}, state, {
+        imageDeleted: (new Date()).getTime()
+      })
+
+      return imageDeleted
     case types.GAME_DETAILS_CHANGED:
       let gameDetailsChanged = Object.assign({}, state, {
         gameDetailsChanged: (new Date()).getTime()

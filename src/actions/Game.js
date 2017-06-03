@@ -63,6 +63,12 @@ function imageUpdated () {
   }
 }
 
+function imageDeleted () {
+  return {
+    type: types.IMAGE_DELETED
+  }
+}
+
 function postNewBackgroound (background, game, area, level) {
   return servicePost('setNewBackground', {
     background,
@@ -140,6 +146,13 @@ function postNewImage (game, id, image) {
     game,
     id,
     image
+  })
+}
+
+function deleteImage (id, game) {
+  return servicePost('deleteImage', {
+    game,
+    id
   })
 }
 
@@ -257,6 +270,14 @@ export function updateImage (game, id, image) {
   return dispatch => {
     postNewImage(game, id, image).then(
       () => dispatch(imageUpdated())
+    )
+  }
+}
+
+export function deleteCard (id, game) {
+  return dispatch => {
+    deleteImage(id, game).then(
+      () => dispatch(imageDeleted())
     )
   }
 }

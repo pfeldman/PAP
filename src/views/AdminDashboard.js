@@ -10,7 +10,8 @@ import {
   setText,
   detailsChanged,
   newCard,
-  updateImage
+  updateImage,
+  deleteCard
 } from '../actions/Game'
 import ColorShower from '../components/ColorShower'
 import ImagePreview from '../components/ImagePreview'
@@ -58,7 +59,8 @@ class Dashboard extends React.Component {
       descriptionChanged,
       textChanged,
       cardAdded,
-      imageUpdated
+      imageUpdated,
+      imageDeleted
     } = this.props
 
     if (prevProps.gameUpdated !== gameUpdated) {
@@ -72,7 +74,8 @@ class Dashboard extends React.Component {
       prevProps.descriptionChanged !== descriptionChanged ||
       prevProps.textChanged !== textChanged ||
       prevProps.cardAdded !== cardAdded ||
-      prevProps.imageUpdated !== imageUpdated
+      prevProps.imageUpdated !== imageUpdated ||
+      prevProps.imageDeleted !== imageDeleted
     ) {
       dispatch(getGameKeys(game, area, level))
     }
@@ -80,7 +83,7 @@ class Dashboard extends React.Component {
 
   createData = () => {
     return (
-      <label>Create new content</label>
+      <a onClick={this.newOfThis}>New Element</a>
     )
   }
 
@@ -139,6 +142,12 @@ class Dashboard extends React.Component {
     }
   }
 
+  deleteItem = (id) => {
+    const { game, dispatch } = this.props
+
+    dispatch(deleteCard(id, game))
+  }
+
   get game () {
     const { gameDetails } = this.props
 
@@ -194,6 +203,7 @@ class Dashboard extends React.Component {
           {gameDetails.map((details, index) => {
             return (
               <div className='section gameSection' key={'details-' + index}>
+                <i className='fa fa-times deleteItem' onClick={this.deleteItem.bind(this, details.id)} />
                 <div className='col-md-3'>
                   <ImagePreview
                     image={details.image}
@@ -223,7 +233,7 @@ class Dashboard extends React.Component {
               </div>
             )
           })}
-          <a onClick={this.newOfThis}>New Element</a>
+          {this.createData()}
         </div>
       )
     } else if (this.state.loaded) {
@@ -367,7 +377,8 @@ Dashboard.propTypes = {
   descriptionChanged: PropTypes.number,
   textChanged: PropTypes.number,
   cardAdded: PropTypes.number,
-  imageUpdated: PropTypes.imageUpdated
+  imageUpdated: PropTypes.number,
+  imageDeleted: PropTypes.number
 }
 
 function mapStateToProps (state) {
@@ -382,7 +393,8 @@ function mapStateToProps (state) {
     descriptionChanged: state.Game.descriptionChanged,
     textChanged: state.Game.textChanged,
     cardAdded: state.Game.cardAdded,
-    imageUpdated: state.Game.imageUpdated
+    imageUpdated: state.Game.imageUpdated,
+    imageDeleted: state.Game.imageDeleted
   }
 }
 

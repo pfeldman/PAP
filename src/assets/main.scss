@@ -1,4 +1,6 @@
 @import "bootstrap";
+@import "font-awesome";
+
 @font-face {
   font-family: 'Mark';
   src: url("http://pasitoapaso.themonstera.com/fonts/Mark-Regular.otf") format("opentype");
@@ -32,8 +34,18 @@ a {
     &.gameSection {
       min-height: 200px;
       width: 100%;
+      position: relative;
     }
   }
+}
+
+.deleteItem {
+  font-size: 50px;
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  color: red;
+  cursor: pointer;
 }
 
 .fileStyled {
