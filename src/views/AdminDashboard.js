@@ -124,7 +124,12 @@ class Dashboard extends React.Component {
 
   newOfThis = () => {
     const { game, area, level, dispatch, gameDetails } = this.props
-    const details = gameDetails[0]
+    const details = gameDetails[0] || {
+      background: '0,0,0',
+      secondaryColor: '#000000',
+      description: '',
+      texto: ''
+    }
     dispatch(newCard(game, area, level, details.background, details.secondaryColor, details.description, details.texto))
   }
 
