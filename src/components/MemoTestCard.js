@@ -62,7 +62,7 @@ class MemoTestCard extends React.Component {
       width: width
     }
     const backStyle = {
-      backgroundColor: detail.secondayColor,
+      backgroundColor: detail.secondaryColor,
       height: height,
       width: width
     }

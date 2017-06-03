@@ -8,6 +8,7 @@ import MemoTest from './MemoTest'
 import Circuit from './Circuit'
 import Alert from './Alert'
 import Agrupando from './Agrupando'
+import Admin from './Admin'
 
 export default combineReducers({
   SessionService,
@@ -18,5 +19,6 @@ export default combineReducers({
   MemoTest,
   Circuit,
   Alert,
-  Agrupando
+  Agrupando,
+  Admin
 })

@@ -7,6 +7,12 @@ function loginError () {
   }
 }
 
+function adminLoginError () {
+  return {
+    type: types.ADMIN_LOGIN_ERROR
+  }
+}
+
 function loginSuccessful (response) {
   localStorage.setItem('loggedIn', true)
   localStorage.setItem('name', response.name)
@@ -18,6 +24,14 @@ function loginSuccessful (response) {
     name: response.name,
     level: response.level,
     username: response.username
+  }
+}
+
+function adminLoginSuccessful (response) {
+  localStorage.setItem('adminLoggedIn', true)
+
+  return {
+    type: types.ADMIN_LOGIN
   }
 }
 
@@ -38,6 +52,13 @@ function postUpdateLevel (username, level) {
 
 function loginAttempt (username, password) {
   return servicePost('login', {
+    username: username,
+    password: password
+  })
+}
+
+function adminLoginAttempt (username, password) {
+  return servicePost('adminLogin', {
     username: username,
     password: password
   })
@@ -90,6 +111,14 @@ export function login (username, password) {
     loginAttempt(username, password).then(
       response => dispatch(loginSuccessful(response))
     ).fail(response => dispatch(loginError()))
+  }
+}
+
+export function adminLogin (username, password) {
+  return dispatch => {
+    adminLoginAttempt(username, password).then(
+      response => dispatch(adminLoginSuccessful(response))
+    ).fail(response => dispatch(adminLoginError()))
   }
 }
 

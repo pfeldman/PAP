@@ -12,6 +12,12 @@ function SessionService (state = {}, action) {
       })
 
       return loggedIn
+    case types.ADMIN_LOGIN:
+      let adminLogin = Object.assign({}, state, {
+        adminLoggedIn: true
+      })
+
+      return adminLogin
     case types.LOGOUT:
       let logout = Object.assign({}, state, {
         loggedIn: false,
@@ -32,6 +38,13 @@ function SessionService (state = {}, action) {
       })
 
       return notLoggedIn
+    case types.ADMIN_LOGIN_ERROR:
+      let adminNotLoggedIn = Object.assign({}, state, {
+        adminLoggedIn: false,
+        adminLoggedInError: true
+      })
+
+      return adminNotLoggedIn
     case types.GET_AREAS:
       let stringAreas = []
       action.areas.map(area => {
@@ -75,6 +88,12 @@ function SessionService (state = {}, action) {
           level: parseInt(localStorage.getItem('level'), 10),
           username: localStorage.getItem('username'),
           loggedInError: false
+        })
+      }
+      if (localStorage.getItem('adminLoggedIn')) {
+        state = Object.assign({}, state, {
+          adminLoggedIn: !!localStorage.getItem('adminLoggedIn'),
+          adminLoggedInError: false
         })
       }
       return state
