@@ -10,6 +10,7 @@ class GameSelector extends React.Component {
           <GameCard type='memoTest' level={level} />
           <GameCard type='agrupando' level={level} />
           <GameCard type='circuitos' level={level} />
+          <div className='saladejuegos' />
         </div>
       </div>
     )

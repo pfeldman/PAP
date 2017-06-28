@@ -491,7 +491,7 @@ class Game extends React.Component {
         }>{this.state.gameTime > 1
           ? this.state.gameTime - 1
           : this.state.gameTime === 1
-            ? 'YA!'
+            ? '¡YA!'
             : ''
           }</span>
       </div>

@@ -66,10 +66,10 @@ class AgrupandoCard extends React.Component {
             backgroundColor: gameDetails[0].secondaryColor
           }}
         >
-          {title}
+          {$('<textarea />').html(title).text()}
         </div>
         <div className='content' style={{
-          height: window.innerHeight - 191 - noHeight - 30
+          height: (window.innerHeight - 191 - noHeight - 30) + 'px !important'
         }}>
           {elements.map((element, index) => {
             let bg = $(element).css('background-image')
