@@ -52,16 +52,20 @@ class AgrupandoCard extends React.Component {
   }
 
   render = () => {
-    const { title, noHeight, elements } = this.props
+    const { title, noHeight, elements, gameDetails } = this.props
     return (
       <div
         ref={'card' + title}
         className='agrupandoCard'
         style={{
-          height: window.innerHeight - 191 - noHeight - 30
+          height: (window.innerHeight - 191 - noHeight - 30) + 'px !important'
         }}
       >
-        <div className='cardTitle'>
+        <div className='cardTitle'
+          style={{
+            backgroundColor: gameDetails[0].secondaryColor
+          }}
+        >
           {title}
         </div>
         <div className='content' style={{
@@ -93,7 +97,8 @@ AgrupandoCard.propTypes = {
   changed: PropTypes.number,
   droppedCard: PropTypes.object,
   title: PropTypes.string,
-  noHeight: PropTypes.number
+  noHeight: PropTypes.number,
+  gameDetails: PropTypes.number
 }
 
 function mapStateToProps (state) {

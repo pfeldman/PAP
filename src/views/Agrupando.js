@@ -360,6 +360,7 @@ class Agrupando extends React.Component {
                   fail={this.fail}
                   ok={this.ok}
                   elements={elements}
+                  gameDetails={gameDetails}
                 />
               )
             })}
@@ -368,7 +369,7 @@ class Agrupando extends React.Component {
             <div
               className='agrupandoContainerScroll'
               style={{
-                width: window.innerWidth * 94 / 100,
+                width: (window.innerWidth * 94 / 100),
                 marginLeft: '3%',
                 height: (((windowSize / 6) - (windowSize * 2 / 100))) / 82 * 100
               }}
