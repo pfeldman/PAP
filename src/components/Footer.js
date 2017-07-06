@@ -68,7 +68,7 @@ class Footer extends React.Component {
               options={levels}
               onChange={this.onSelect}
               value={levels[level - 1]}
-              placeholder={levels[level - 1].label}
+              placeholder={'levels[level - 1].label'}
             />
           </div>
           <div className='pull-right logoutFooter'>

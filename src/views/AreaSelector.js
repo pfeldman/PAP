@@ -44,7 +44,7 @@ class AreaSelector extends React.Component {
             </g>
           </svg>
 
-          <label className='details'>Elegí en qué área querés juegar</label>
+          <label className='details'>Elegí en qué área querés jugar</label>
           <LevelSelector
             options={[
               {
