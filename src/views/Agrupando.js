@@ -392,8 +392,8 @@ class Agrupando extends React.Component {
                       <div
                         className='space'
                         style={{
-                          width: (windowSize / 6) - (windowSize * 2 / 100),
-                          height: (((windowSize / 6) - (windowSize * 2 / 100))) / 82 * 100
+                          width: ((windowSize / 6) - (windowSize * 2 / 100)) - 30,
+                          height: ((((windowSize / 6) - (windowSize * 2 / 100))) / 82 * 100) - 30
                         }}
                       >
                       </div>

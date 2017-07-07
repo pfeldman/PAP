@@ -66,8 +66,8 @@ class AgrupandoDraggableCard extends React.Component {
         className={'circuitDraggableCard'}
         ref={'card' + card.id}
         style={{
-          width: width,
-          height: width / 82 * 100,
+          width: width - 40,
+          height: (width / 82 * 100) - 40,
           backgroundImage: 'url("' + card.image + '")'
         }}
         id={card.posicion}
