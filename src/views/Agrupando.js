@@ -337,7 +337,10 @@ class Agrupando extends React.Component {
           categories.push(detail.category)
         }
       })
-      const left = ((window.innerWidth * 94 / 100) * (this.state.screen - 1)) * -1
+      let left = (((window.innerWidth * 94 / 100) * (this.state.screen - 1)) * -1)
+      if (this.state.screen > 1){
+        left = left + ((windowSize / 6) - (windowSize * 2 / 100)) * 2
+      }
       return (
         <div>
           <audio ref='okSound' src='http://pasitoapaso.themonstera.com/ok.mp3' preload='auto' />
@@ -392,8 +395,8 @@ class Agrupando extends React.Component {
                       <div
                         className='space'
                         style={{
-                          width: ((windowSize / 6) - (windowSize * 2 / 100)) - 30,
-                          height: ((((windowSize / 6) - (windowSize * 2 / 100))) / 82 * 100) - 30
+                          width: ((windowSize / 6) - (windowSize * 2 / 100)) - 40,
+                          height: ((((windowSize / 6) - (windowSize * 2 / 100))) / 82 * 100) - 40
                         }}
                       >
                       </div>
