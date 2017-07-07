@@ -338,7 +338,7 @@ class Agrupando extends React.Component {
         }
       })
       let left = (((window.innerWidth * 94 / 100) * (this.state.screen - 1)) * -1)
-      if (this.state.screen > 1){
+      if (this.state.screen > 1) {
         left = left + ((windowSize / 6) - (windowSize * 2 / 100)) * 2
       }
       return (
