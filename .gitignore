@@ -12,3 +12,6 @@ coverage
 
 src/vendor
 src/layout
+
+backend
+assets-update

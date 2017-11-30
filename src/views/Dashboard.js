@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react'
 import { connect } from 'react-redux'
-import Modal from '../components/Modal'
 import { modal } from '../actions/Modal'
 import LevelSelector from '../components/LevelSelector'
 import { updateLevel, getGameAvailableAreas, getAllGameDetails } from '../actions/SessionService'
@@ -27,12 +26,12 @@ class Dashboard extends React.Component {
     if (!game && (prevProps.sound !== sound && sound)) {
       this.refs.dashboardAudio.play()
     }
-    this.showLevelModal(false, prevProps)
+    // this.showLevelModal(false, prevProps)
   }
 
   componentDidMount = () => {
     const { dispatch } = this.props
-    this.showLevelModal(true)
+    // this.showLevelModal(true)
     this.refs.dashboardAudio.play()
     dispatch(getGameAvailableAreas())
     dispatch(getAllGameDetails())
@@ -73,22 +72,31 @@ class Dashboard extends React.Component {
   }
 
   get dashboardContent () {
-    const { game, area, level } = this.props
-    if (game && area) {
+    const { game, area, level, levels } = this.props
+
+    if (level && game && area) {
       return <Game />
-    } else if (game) {
+    } else if (level && area) {
       return (
         <div>
           <Footer />
           <GameSelector level={level} />
+        </div>
+      )
+    } else if (level) {
+      return (
+        <div>
+          <Footer />
           <AreaSelector />
         </div>
       )
-    } else {
+    } else if (!level && levels) {
       return (
         <div>
-          <Footer />
-          <GameSelector level={level} />
+          <LevelSelector
+            options={levels}
+            onChange={this.onSelect}
+          />
         </div>
       )
     }
@@ -116,32 +124,28 @@ class Dashboard extends React.Component {
   }
 
   render = () => {
-    const { level, game } = this.props
-    if (this.state.modalShown) {
-      return (
-        <div className='loginView'>
-          <Modal mandatory />
-        </div>
-      )
-    } else {
-      return (
-        <div
-          className={'dashboard level' + level + ' ' + game}
-          style={this.getStyle()}
-          onClick={this.parentClick}
-        >
-          <audio ref='dashboardAudio' src='http://pasitoapaso.themonstera.com/choosingGame.mp3' preload='auto' />
-          <audio ref='click' src='http://pasitoapaso.themonstera.com/click.mp3' preload='auto' />
-          <div className='background-container'>
-            {this.dashboardContent}
-            <Alert />
-            <div className='warning'>
-              Para poder disfrutar mejor del juego, por favor gire su dispositivo
-            </div>
+    const { level, game, area } = this.props
+    return (
+      <div
+        className={`
+         dashboard
+         ${
+            !level ? 'levelSelector' : 'level' + level
+          } ${level && !area ? 'areaSelector' : '' + area} ${level && area && !game ? '' : '' + game}
+        `}
+        onClick={this.parentClick}
+      >
+        <audio ref='dashboardAudio' src='http://pasitoapaso.themonstera.com/choosingGame.mp3' preload='auto' />
+        <audio ref='click' src='http://pasitoapaso.themonstera.com/click.mp3' preload='auto' />
+        <div className='background-container'>
+          {this.dashboardContent}
+          <Alert />
+          <div className='warning'>
+            Para poder disfrutar mejor del juego, por favor gire su dispositivo
           </div>
         </div>
-      )
-    }
+      </div>
+    )
   }
 }
 

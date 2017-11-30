@@ -9,11 +9,9 @@ class LevelSelector extends React.Component {
           return (
             <label
               key={'levelOption-' + index}
-              className={'levelOption ' + (option.disabled ? 'disabled' : '')}
+              className={'levelOption level' + (index+1) + (option.disabled ? ' disabled' : '')}
               onClick={option.disabled ? null : onChange.bind(this, option)}
-            >
-              {option.label}
-            </label>
+            />
           )
         })}
       </div>
