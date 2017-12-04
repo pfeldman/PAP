@@ -62,7 +62,7 @@ class Footer extends React.Component {
     return (
       <div className='footer'>
         <div className='pull-left levelSelectorFooter'>
-          Grado: {level}
+          <div className={`level${level} saladejuegos`} />
         </div>
         <div className='pull-right logoutFooter'>
           <div className='toogleSound' onClick={this.toggleSound}>

@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import Dashboard from './Dashboard'
 import { getLevels } from '../actions/Levels'
@@ -13,14 +13,8 @@ class App extends React.Component {
   render = () => <Dashboard />
 }
 
-App.propTypes = {
-  loggedIn: PropTypes.bool
-}
-
 function mapStateToProps (state) {
-  return {
-    loggedIn: state.SessionService.loggedIn
-  }
+  return {}
 }
 
 export default connect(mapStateToProps)(App)

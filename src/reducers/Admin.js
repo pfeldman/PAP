@@ -20,6 +20,12 @@ function Admin (state = {}, action) {
       })
 
       return adminGame
+    case types.ADMIN_GAME_TYPE:
+      let adminGameType = Object.assign({}, state, {
+        type: action.gameType
+      })
+
+      return adminGameType
     default:
       return state
   }

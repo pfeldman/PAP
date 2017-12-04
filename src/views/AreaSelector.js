@@ -12,7 +12,6 @@ class AreaSelector extends React.Component {
 
   selectArea = (option) => {
     const { dispatch } = this.props
-    console.log('area selecionada', option)
 
     dispatch(selectArea(option.value))
   }

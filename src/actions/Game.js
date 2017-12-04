@@ -177,11 +177,12 @@ function postGameDetails (game, id, details, value) {
   })
 }
 
-function postGameKeys (game, area, level) {
+function postGameKeys (game, area, level, type) {
   return servicePost('getGameKeys', {
     game,
     area,
-    level
+    level,
+    type
   })
 }
 
@@ -198,9 +199,9 @@ export function retryGame () {
   }
 }
 
-export function getGameKeys (game, area, level) {
+export function getGameKeys (game, area, level, type) {
   return dispatch => {
-    postGameKeys(game, area, level).then(
+    postGameKeys(game, area, level, type).then(
       response => dispatch(gameKeysReceived(response))
     ).fail(() => dispatch(gameKeysFail()))
   }

@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react'
 import { connect } from 'react-redux'
 import Accordeon from '../components/Accordeon'
-import { setLevel, setArea, setGame } from '../actions/Admin'
+import { setLevel, setArea, setGame, setGameType } from '../actions/Admin'
 import {
   getGameKeys,
   setBackground,
@@ -39,12 +39,20 @@ class Dashboard extends React.Component {
   }
 
   setGame = (game) => {
-    const { dispatch, area, level } = this.props
+    const { dispatch } = this.props
     this.setState({
       loaded: false
     })
     dispatch(setGame(game))
-    dispatch(getGameKeys(game, area, level))
+  }
+
+  setGameType = (type) => {
+    const { dispatch, area, level, game } = this.props
+    this.setState({
+      loaded: false
+    })
+    dispatch(setGameType(type))
+    dispatch(getGameKeys(game, area, level, type))
   }
 
   componentDidUpdate = (prevProps) => {
@@ -248,6 +256,35 @@ class Dashboard extends React.Component {
     }
   }
 
+  get gameTypeSelector () {
+    const { game } = this.props
+
+    return (
+      <Accordeon
+        pages={[
+          {
+            title: 'Plantas',
+            content: this.game,
+            open: (game === 'plantas'),
+            onClick: this.setGameType.bind(this, 'plantas')
+          },
+          {
+            title: 'Animales',
+            content: this.game,
+            open: (game === 'animales'),
+            onClick: this.setGameType.bind(this, 'animales')
+          },
+          {
+            title: 'Materiales',
+            content: this.game,
+            open: (game === 'materiales'),
+            onClick: this.setGameType.bind(this, 'materiales')
+          }
+        ]}
+      />
+    )
+  }
+
   get gameSelector () {
     const { game } = this.props
 
@@ -256,19 +293,31 @@ class Dashboard extends React.Component {
         pages={[
           {
             title: 'Memo Test',
-            content: this.game,
+            content: (
+              <div>
+                {this.gameTypeSelector}
+              </div>
+            ),
             open: (game === 'memoTest'),
             onClick: this.setGame.bind(this, 'memoTest')
           },
           {
             title: 'Grupitos',
-            content: this.game,
+            content: (
+              <div>
+                {this.gameTypeSelector}
+              </div>
+            ),
             open: (game === 'agrupando'),
             onClick: this.setGame.bind(this, 'agrupando')
           },
           {
             title: 'Circuitos',
-            content: this.game,
+            content: (
+              <div>
+                {this.gameTypeSelector}
+              </div>
+            ),
             open: (game === 'circuitos'),
             onClick: this.setGame.bind(this, 'circuitos')
           }
@@ -375,6 +424,7 @@ Dashboard.propTypes = {
   level: PropTypes.number,
   area: PropTypes.string,
   game: PropTypes.string,
+  type: PropTypes.string,
   gameDetails: PropTypes.array,
   gameUpdated: PropTypes.number,
   backgroundChanged: PropTypes.number,

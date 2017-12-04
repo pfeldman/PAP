@@ -20,3 +20,10 @@ export function setGame (game) {
     game
   }
 }
+
+export function setGameType (gameType) {
+  return {
+    type: types.ADMIN_GAME_TYPE,
+    gameType
+  }
+}
