@@ -2,155 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9102a535-551c-4bc7-8c0a-f02e095d3219" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/components/card/card.component.jsx" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/components/card/card.component.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/views/app.component.jsx" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc" afterPath="$PROJECT_DIR$/.eslintrc" />
-      <change beforePath="$PROJECT_DIR$/bin/karma.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/karma.conf.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/build/webpack.config.js" afterPath="$PROJECT_DIR$/build/webpack.config.js" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/src/AttrPlugin.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/BezierPlugin.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ColorPropsPlugin.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/EasePack.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ModifiersPlugin.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/RaphaelPlugin.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/RoundPropsPlugin.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ScrollToPlugin.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/TextPlugin.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/TimelineLite.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/TimelineMax.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/actions/Admin.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/actions/Agrupando.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/actions/Alert.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/actions/Area.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/actions/Circuit.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/actions/Levels.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/actions/MemoTest.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/actions/Modal.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/actions/SessionService.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/_bootstrap.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/_helpers.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/_variables.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_alerts.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_badges.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_breadcrumbs.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_button-groups.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_buttons.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_carousel.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_close.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_code.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_component-animations.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_dropdowns.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_forms.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_glyphicons.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_grid.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_input-groups.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_jumbotron.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_labels.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_list-group.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_media.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_mixins.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_modals.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_navbar.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_navs.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_normalize.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_pager.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_pagination.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_panels.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_popovers.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_print.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_progress-bars.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_responsive-embed.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_responsive-utilities.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_scaffolding.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_tables.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_theme.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_thumbnails.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_tooltip.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_type.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_utilities.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_variables.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/_wells.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/mixins/_alerts.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/mixins/_background-variant.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/mixins/_border-radius.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/mixins/_buttons.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/mixins/_center-block.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/mixins/_clearfix.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/mixins/_forms.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/mixins/_gradients.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/mixins/_grid-framework.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/mixins/_grid.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/mixins/_hide-text.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/mixins/_image.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/mixins/_labels.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/mixins/_list-group.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/mixins/_nav-divider.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/mixins/_nav-vertical-align.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/mixins/_opacity.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/mixins/_pagination.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/mixins/_panels.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/mixins/_progress-bar.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/mixins/_reset-filter.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/mixins/_reset-text.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/mixins/_resize.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/mixins/_responsive-visibility.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/mixins/_size.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/mixins/_tab-focus.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/mixins/_table-row.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/mixins/_text-emphasis.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/mixins/_text-overflow.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/bootstrap/mixins/_vendor-prefixes.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/font-awesome.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/assets/main.scss" afterPath="$PROJECT_DIR$/src/assets/main.scss" />
-      <change beforePath="$PROJECT_DIR$/src/assets/static/favicon.ico" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/components/Accordeon.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/components/AccordeonPage.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/components/AgrupandoCard.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/components/AgrupandoDraggableCard.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/components/Alert.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/components/AreaCard.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/components/CircuitDraggableCard.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/components/CircuitsCard.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/components/ColorShower.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/components/GameCard.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/components/ImagePreview.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/components/LevelSelector.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/components/Loading.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/components/MemoTestCard.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/components/Modal.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/constants/ActionsTypes.js" afterPath="$PROJECT_DIR$/src/constants/ActionsTypes.js" />
-      <change beforePath="$PROJECT_DIR$/src/main.js" afterPath="$PROJECT_DIR$/src/main.js" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/Admin.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/Agrupando.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/Alert.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/Area.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/Circuit.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/Levels.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/MemoTest.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/Modal.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/SessionService.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/rootReducer.js" afterPath="$PROJECT_DIR$/src/reducers/rootReducer.js" />
-      <change beforePath="$PROJECT_DIR$/src/routes.js" afterPath="$PROJECT_DIR$/src/routes.js" />
-      <change beforePath="$PROJECT_DIR$/src/utils/serviceFetch.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/views/Admin.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/views/AdminDashboard.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/views/AdminLogin.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/views/Agrupando.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/views/App.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/views/AreaSelector.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/views/Circuitos.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/views/Dashboard.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/views/Game.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/views/GameSelector.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/views/Login.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/views/MemoTest.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/views/Root.js" afterPath="$PROJECT_DIR$/src/views/root.component.jsx" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/CSSRulePlugin.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/DirectionalRotationPlugin.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/EaselPlugin.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/EndArrayPlugin.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/actions/Game.js" afterPath="$PROJECT_DIR$/src/actions/Game.js" />
+      <change beforePath="$PROJECT_DIR$/src/components/card/card.component.jsx" afterPath="$PROJECT_DIR$/src/components/card/card.component.jsx" />
+      <change beforePath="$PROJECT_DIR$/src/utils/EasePack.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/utils/ThrowPropsPlugin.js" afterPath="$PROJECT_DIR$/src/helpers/throw.helper.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -189,8 +49,8 @@
       <file leaf-file-name="card.component.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/card/card.component.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="20" lean-forward="true" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+            <state relative-caret-position="272">
+              <caret line="23" column="18" lean-forward="true" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -234,7 +94,7 @@
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="288">
-              <caret line="85" column="33" lean-forward="true" selection-start-line="85" selection-start-column="33" selection-end-line="85" selection-end-column="33" />
+              <caret line="85" column="33" lean-forward="false" selection-start-line="85" selection-start-column="33" selection-end-line="85" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -380,13 +240,13 @@
               <item name="PAP" type="b2602c69:ProjectViewProjectNode" />
               <item name="PAP" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="reducers" type="462c0819:PsiDirectoryNode" />
+              <item name="helpers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="PAP" type="b2602c69:ProjectViewProjectNode" />
               <item name="PAP" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="reducers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="PAP" type="b2602c69:ProjectViewProjectNode" />
@@ -447,12 +307,12 @@
       <option name="presentableId" value="Default" />
       <updated>1520013585095</updated>
       <workItem from="1520013587635" duration="1929000" />
-      <workItem from="1520148197405" duration="6088000" />
+      <workItem from="1520148197405" duration="6312000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8017000" />
+    <option name="totallyTimeSpent" value="8241000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -727,7 +587,7 @@
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
-          <caret line="85" column="33" lean-forward="true" selection-start-line="85" selection-start-column="33" selection-end-line="85" selection-end-column="33" />
+          <caret line="85" column="33" lean-forward="false" selection-start-line="85" selection-start-column="33" selection-end-line="85" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -962,8 +822,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/card/card.component.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="20" lean-forward="true" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+        <state relative-caret-position="272">
+          <caret line="23" column="18" lean-forward="true" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

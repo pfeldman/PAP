@@ -1,5 +1,5 @@
 import * as types from '../constants/ActionsTypes'
-import { servicePost } from '../utils/serviceFetch'
+import { servicePost } from '../helpers/serviceFetch'
 
 export function selectGame (game) {
   return {

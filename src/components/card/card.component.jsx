@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './card.component.scss';
 import Draggable from 'gsap/Draggable';
 import TweenLite from 'gsap/TweenLite';
-import ThrowPropsPlugin from '../../utils/ThrowPropsPlugin';
+import ThrowHelper from '../../helpers/throw.helper';
 import { Back } from 'gsap/EasePack';
 
 class Card extends React.Component {
@@ -32,7 +32,7 @@ class Card extends React.Component {
         if (this.end < this.start) {
           converter = -1;
         }
-        let velocity = ThrowPropsPlugin.getVelocity(this.card, 'x');
+        let velocity = ThrowHelper.getVelocity(this.card, 'x');
         let angle = (38 * (velocity / 3500 * 100) / 100) * converter;
         let ease = Back.easeOut.config(3.7);
         TweenLite.to(this.card, 0.45, {
