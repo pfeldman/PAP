@@ -8,7 +8,7 @@ import _debug from 'debug'
 
 const debug = _debug('app:webpack:config')
 const paths = config.utils_paths
-const {__DEV__, __PROD__, __TEST__} = config.globals
+const {__DEV__, __PROD__} = config.globals
 
 debug('Create configuration.')
 const webpackConfig = {
@@ -162,9 +162,9 @@ webpackConfig.module.loaders.push({
   ]
 })
 
-webpackConfig.module.loaders.push({ 
-     test: /\.(png|jpg)$/, 
-     loader: 'file-loader' 
+webpackConfig.module.loaders.push({
+  test: /\.(png|jpg)$/,
+  loader: 'url-loader'
 })
 
 // Don't treat global SCSS as modules

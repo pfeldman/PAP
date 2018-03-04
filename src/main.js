@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { useRouterHistory } from 'react-router'
 import { createHashHistory } from 'history'
 import Routes from './routes'
-import Root from './views/Root'
+import Root from './views/root.component'
 import configureStore from 'configureStore'
 
 const history = useRouterHistory(createHashHistory)({ queryKey: false })

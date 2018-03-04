@@ -1,0 +1,15 @@
+.card {
+  width: 145px;
+  height: 171px;
+  background-image: url('../../assets/images/card-background.png');
+  background-size: 100%;
+  background-color: #9BD420;
+  box-shadow: 1px 1px 3px 0 rgba(0,0,0,.3);
+  border-radius: 30px;
+  border: 16px solid #fff;
+  transition: box-shadow 0.3s ease-in-out;
+
+  &.dragging {
+    box-shadow: 15px 15px 37px 0 rgba(0,0,0,.3);
+  }
+}
