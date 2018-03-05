@@ -9,38 +9,9 @@
   },
   "scripts": {
     "clean": "node clean.js",
-    "compile": "node -r dotenv/config --harmony bin/compile",
-    "lint": "eslint . ./",
-    "lint:fix": "npm run lint -- --fix",
-    "dev": "node ./node_modules/concurrently/src/main.js --raw --kill-others \"better-npm-run dev\"",
-    "build": "better-npm-run build"
-  },
-  "betterScripts": {
-    "dev": {
-      "command": "nodemon -r dotenv/config bin/server",
-      "env": {
-        "DEVELOPMODE": true,
-        "BE_HOST": "api.dev.lendsnap.com",
-        "BE_PORT": "8000",
-        "URL": "/",
-        "RELATIVE_PATH": false,
-        "NODE_ENV": "local"
-      }
-    },
-    "build": {
-      "command": "npm run clean && npm run compile",
-      "env": {
-        "BE_HOST": "api.test.lendsnap.com",
-        "URL": "/",
-        "BE_HTTPS": true,
-        "RELATIVE_PATH": false,
-        "NODE_ENV": "test"
-      }
-    }
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Lendsnap/New-UI-React-Concept.git"
+    "lint": "eslint .",
+    "dev": "nodemon -r dotenv/config bin/server",
+    "build": "npm run clean && node -r dotenv/config --harmony bin/compile"
   },
   "author": "The Monstera Team",
   "dependencies": {
@@ -94,6 +65,8 @@
     "eslint": "^2.7.0",
     "eslint-config-standard": "^4.4.0",
     "eslint-config-standard-react": "^1.2.1",
+    "eslint-import-resolver-babel-module": "^4.0.0",
+    "eslint-import-resolver-webpack": "^0.8.4",
     "eslint-loader": "^1.1.1",
     "eslint-plugin-babel": "^3.0.0",
     "eslint-plugin-flow-vars": "^0.1.3",

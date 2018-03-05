@@ -1,10 +1,10 @@
-import React from 'react'
-import Card from '../components/card/card.component'
+import React from 'react';
+import Card from '../components/card/card.component';
 
 class App extends React.Component {
-  render = () => {
-    return <Card />
+  render () {
+    return <Card />;
   }
 }
 
-export default App
+export default App;
